@@ -1,0 +1,182 @@
+function MemberRegistration({ member, updateMember, removeMember, index }) {
+    /*
+    name: '',
+    email: '',
+    srn: '',
+    campus: '',
+    sem: '',
+    year: '',
+    branch: '',
+    phone: '',
+    gender: '',
+    guardian_name: '',
+    guardian_phone: '',
+    is_hostellite: false,
+    hostel_room_no: null,
+    */
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        let name = e.target.name;
+        let val = e.target.value;
+
+        if (name === 'is_hostellite') {
+            val = val === 'true' ? true : false;
+        }
+
+        updateMember(index, { [name]: val });
+    };
+
+    const handleRemove = (e) => {
+        e.preventDefault();
+        removeMember(index);
+    };
+
+    return (
+        <div className='border-2 border-black rounded-lg p-4 my-5'>
+            <p className='font-bold text-step-2 m-2'>Member {index + 1}</p>
+            <hr />
+            <div className='flex flex-col gap-2'>
+                <label htmlFor='name'>
+                    Name
+                    <input
+                        required
+                        type='text'
+                        name='name'
+                        onChange={handleUpdate}
+                        value={member.name}
+                    />
+                </label>
+                <label htmlFor='email'>
+                    Email
+                    <input
+                        required
+                        type='text'
+                        name='email'
+                        onChange={handleUpdate}
+                        value={member.email}
+                    />
+                </label>
+                <label htmlFor='srn'>
+                    SRN
+                    <input
+                        required
+                        type='text'
+                        name='srn'
+                        onChange={handleUpdate}
+                        value={member.srn}
+                    />
+                </label>
+                <label htmlFor='campus'>
+                    Campus
+                    <select
+                        required
+                        className=''
+                        name='campus'
+                        onChange={handleUpdate}
+                        value={member.campus}>
+                        <option value='EC'>EC Campus</option>
+                        <option value='RR'>RR Campus</option>
+                        <option value='HN'>HN Campus</option>
+                    </select>
+                </label>
+                <label htmlFor='sem'>
+                    SEM
+                    <select
+                        required
+                        className=''
+                        name='sem'
+                        onChange={handleUpdate}
+                        value={member.sem}>
+                        <option value='1'>1st Sem</option>
+                        <option value='3'>3st Sem</option>
+                        <option value='5'>5th Sem</option>
+                        <option value='7'>7th Sem</option>
+                    </select>
+                </label>
+                <label htmlFor='branch'>
+                    Branch
+                    <select
+                        required
+                        className=''
+                        name='branch'
+                        onChange={handleUpdate}
+                        value={member.branch}>
+                        <option value='CSE'>CSE</option>
+                        <option value='ECE'>ECE</option>
+                        <option value='EEE'>EEE</option>
+                        <option value='MEC'>Mechanical</option>
+                        <option value='CIV'>Civil</option>
+                        <option value='BTE'>Bio Tech</option>
+                    </select>
+                </label>
+                <label htmlFor='phone'>
+                    Phone
+                    <input
+                        required
+                        type='text'
+                        name='phone'
+                        onChange={handleUpdate}
+                        value={member.phone}
+                    />
+                </label>
+                <label htmlFor='gender'>
+                    Gender
+                    <select
+                        required
+                        className=''
+                        name='gender'
+                        onChange={handleUpdate}
+                        value={member.gender}>
+                        <option value='M'>Male</option>
+                        <option value='F'>Female</option>
+                        <option value='NB'>Non Binary</option>
+                        <option value='O'>Other</option>
+                    </select>
+                </label>
+                <label htmlFor='guardian_name'>
+                    Guardian Name
+                    <input
+                        required
+                        type='text'
+                        name='guardian_name'
+                        onChange={handleUpdate}
+                        value={member.guardian_name}
+                    />
+                </label>
+                <label htmlFor='guardian_phone'>
+                    Guardian Phone
+                    <input
+                        required
+                        type='text'
+                        name='guardian_phone'
+                        onChange={handleUpdate}
+                        value={member.guardian_phone}
+                    />
+                </label>
+                <label htmlFor='is_hostellite'>
+                    Are you a hostellite?
+                    <select
+                        required
+                        className=''
+                        name='is_hostellite'
+                        onChange={handleUpdate}
+                        value={member.is_hostellite}>
+                        <option value='true'>YES</option>
+                        <option value='false'>NO</option>
+                    </select>
+                </label>
+                {member.is_hostellite && (
+                    <label htmlFor='hotel_room_no'>
+                        Hostel Room No
+                        <input required type='number' name='hotel_room_no' />
+                    </label>
+                )}
+            </div>
+            <button className='btn m-2' onClick={handleRemove}>
+                Remove Member
+            </button>
+        </div>
+    );
+}
+
+export default MemberRegistration;
