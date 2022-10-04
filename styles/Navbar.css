@@ -1,0 +1,14 @@
+.navbar{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
