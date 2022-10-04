@@ -170,9 +170,10 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                     </select>
                 </label>
                 {member.is_hostellite && (
-                    <label htmlFor='hotel_room_no'>
+                    <label htmlFor='hostel_room_no'>
                         Hostel Room No
-                        <input required type='number' name='hotel_room_no' />
+                        <input required type='number' name='hostel_room_no' onChange={handleUpdate}
+                        value={member.hostel_room_no}></input>
                     </label>
                 )}
             </div>

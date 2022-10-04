@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import MemberRegistration from './MemberRegistration';
-import {supabase} from '../../utils/supabaseClient'
+import { supabase } from '../../utils/supabaseClient'
 
 function RegistrationForm() {
     const [teamDetails, setTeamDetails] = useState({
@@ -37,7 +37,7 @@ function RegistrationForm() {
             setMemberDetails(() => JSON.parse(membersData));
         }
 
-        return () => {};
+        return () => { };
     }, []);
 
     const updateTeamDetails = useCallback(
@@ -65,14 +65,14 @@ function RegistrationForm() {
                         srn: '',
                         campus: 'EC',
                         sem: '1',
-                        year: null,
+                        year: 0,
                         branch: 'CSE',
                         phone: '',
                         gender: 'M',
                         guardian_name: '',
                         guardian_phone: '',
                         is_hostellite: false,
-                        hostel_room_no: null,
+                        hostel_room_no: 0,
                     },
                 ];
             });
@@ -102,27 +102,84 @@ function RegistrationForm() {
         },
         [membersDetails]
     );
+    const validateData = useCallback((teamDetails, memberDetails) => {
+        if (
+            teamDetails.team_name === '' ||
+            teamDetails.problem === '' ||
+            teamDetails.solution === '' ||
+            teamDetails.domain === ''
+        ) {
+            alert('Please fill all the fields in the team details section');
+            return false;
+        }
+
+        if (memberDetails.length === 0) {
+            alert('Please add atleast one member');
+            return false;
+        }
+
+        for (let i = 0; i < memberDetails.length; i++) {
+            const member = memberDetails[i];
+            if (
+                (member.name === '' ||
+                    member.email === '' ||
+                    member.srn === '' ||
+                    member.phone === '' ||
+                    member.guardian_name === '' ||
+                    member.guardian_phone === '')
+            ) {
+                alert(
+                    `Please fill all the fields in the member details section for member ${i + 1}`
+                );
+                return false;
+            }
+            if (!member.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            if (!member.phone.match(/^[0-9]{10}$/)) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+            if (!member.guardian_phone.match(/^[0-9]{10}$/)) {
+                alert('Please enter a valid guardian phone number');
+                return
+            }
+            if (!member.srn.match(/^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/)) {
+                alert('Please enter a valid SRN');
+                return
+            }
+        }
+        registerTeam(teamDetails, memberDetails);
+    })
 
     const registerTeam = useCallback(
-        async (teamDetails, memberDetails)=>{
-            const {data, error} = await supabase.from('Team').insert([teamDetails])
-            if(error){
+        async (teamDetails, memberDetails) => {
+            const { data, error } = await supabase.from('Team').insert([teamDetails])
+            if (error) {
 
             }
-            else{
+            else {
                 let team = await supabase.from('Team').select('id').eq('team_name', teamDetails.team_name)
                 let teamId = team.data[0].id
-                memberDetails.map(async (member)=>{
+                memberDetails.map(async (member) => {
                     console.log(member);
                     member.team_id = teamId
                     member.team_name = teamDetails.team_name
-                    await supabase.from('Member').insert([member])
+                    const { data1, error1 } = await supabase.from('Member').insert([member])
                     let currMember = await supabase.from('Member').select('id').eq('srn', member.srn)
                     let memberId = currMember.data[0].id
-                    await supabase.from('MemberStatus').insert([{member_id:memberId}])
+                    const { data2, error2 } = await supabase.from('MemberStatus').insert([{ member_id: memberId }])
+                    if (error1 || error2) {
+                        alert('Error in registering team')
+                    }
+                    else{
+                        alert('Team registered successfully')
+                    }
                 })
-                
+
             }
+
         }
     );
     return (
@@ -202,7 +259,7 @@ function RegistrationForm() {
                     onClick={(e) => {
                         e.preventDefault();
                         console.log(teamDetails, membersDetails);
-                        registerTeam(teamDetails, membersDetails);
+                        validateData(teamDetails, membersDetails);
                     }}>
                     Submit
                 </button>
