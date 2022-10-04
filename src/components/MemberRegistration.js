@@ -73,6 +73,7 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         className=''
                         name='campus'
                         onChange={handleUpdate}
+                        // onClick={handleUpdate}
                         value={member.campus}>
                         <option value='EC'>EC Campus</option>
                         <option value='RR'>RR Campus</option>
@@ -86,8 +87,9 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         className=''
                         name='sem'
                         onChange={handleUpdate}
+                        // onClick={handleUpdate}
                         value={member.sem}>
-                        <option value='1'>1st Sem</option>
+                        <option value='1' >1st Sem</option>
                         <option value='3'>3st Sem</option>
                         <option value='5'>5th Sem</option>
                         <option value='7'>7th Sem</option>
@@ -100,8 +102,9 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         className=''
                         name='branch'
                         onChange={handleUpdate}
+                        // onClick={handleUpdate}
                         value={member.branch}>
-                        <option value='CSE'>CSE</option>
+                        <option value='CSE' >CSE</option>
                         <option value='ECE'>ECE</option>
                         <option value='EEE'>EEE</option>
                         <option value='MEC'>Mechanical</option>
@@ -126,8 +129,9 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         className=''
                         name='gender'
                         onChange={handleUpdate}
+                        // onClick={handleUpdate}
                         value={member.gender}>
-                        <option value='M'>Male</option>
+                        <option value='M' >Male</option>
                         <option value='F'>Female</option>
                         <option value='NB'>Non Binary</option>
                         <option value='O'>Other</option>
@@ -162,7 +166,7 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         onChange={handleUpdate}
                         value={member.is_hostellite}>
                         <option value='true'>YES</option>
-                        <option value='false'>NO</option>
+                        <option value='false' >NO</option>
                     </select>
                 </label>
                 {member.is_hostellite && (

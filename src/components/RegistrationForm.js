@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import MemberRegistration from './MemberRegistration';
+import {supabase} from '../../utils/supabaseClient'
 
 function RegistrationForm() {
     const [teamDetails, setTeamDetails] = useState({
@@ -41,7 +42,7 @@ function RegistrationForm() {
 
     const updateTeamDetails = useCallback(
         (e) => {
-            console.log('UPDATING TEMA DEETS', e.target.value);
+            console.log('UPDATING TEAM DEETS', e.target.value);
             setTeamDetails((prevDeets) => {
                 return { ...prevDeets, [e.target.name]: e.target.value };
             });
@@ -62,12 +63,12 @@ function RegistrationForm() {
                         name: '',
                         email: '',
                         srn: '',
-                        campus: '',
-                        sem: '',
+                        campus: 'EC',
+                        sem: '1',
                         year: null,
-                        branch: '',
+                        branch: 'CSE',
                         phone: '',
-                        gender: '',
+                        gender: 'M',
                         guardian_name: '',
                         guardian_phone: '',
                         is_hostellite: false,
@@ -102,6 +103,28 @@ function RegistrationForm() {
         [membersDetails]
     );
 
+    const registerTeam = useCallback(
+        async (teamDetails, memberDetails)=>{
+            const {data, error} = await supabase.from('Team').insert([teamDetails])
+            if(error){
+
+            }
+            else{
+                let team = await supabase.from('Team').select('id').eq('team_name', teamDetails.team_name)
+                let teamId = team.data[0].id
+                memberDetails.map(async (member)=>{
+                    console.log(member);
+                    member.team_id = teamId
+                    member.team_name = teamDetails.team_name
+                    await supabase.from('Member').insert([member])
+                    let currMember = await supabase.from('Member').select('id').eq('srn', member.srn)
+                    let memberId = currMember.data[0].id
+                    await supabase.from('MemberStatus').insert([{member_id:memberId}])
+                })
+                
+            }
+        }
+    );
     return (
         <div className='max-w-5xl mx-auto my-10 p-2'>
             <div className='flex justify-between items-center'>
@@ -179,6 +202,7 @@ function RegistrationForm() {
                     onClick={(e) => {
                         e.preventDefault();
                         console.log(teamDetails, membersDetails);
+                        registerTeam(teamDetails, membersDetails);
                     }}>
                     Submit
                 </button>
