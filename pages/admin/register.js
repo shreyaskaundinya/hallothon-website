@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { supabase } from '../../utils/supabaseClient';
 
 function AdminRegister() {
     const formRef = useRef(null);
+    const router = useRouter();
 
     const registerAdmin = async (user) => {
         supabase.auth
@@ -13,6 +15,7 @@ function AdminRegister() {
                     .insert([{ user_id: res.data.user.id, is_admin: true }])
                     .then((data) => {
                         alert('User Added!');
+                        router.push('/admin');
                     })
                     .catch((err) => {});
             })

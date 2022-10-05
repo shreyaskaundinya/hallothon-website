@@ -35,7 +35,7 @@ function Admin() {
         if (err) {
             alert('Error logging out.');
         } else {
-            router.push('/admin/logout');
+            router.push('/admin/login');
         }
     };
 
