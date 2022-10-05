@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import TeamsData from '../../src/components/admin/TeamsData';
 import { supabase } from '../../utils/supabaseClient';
 
 function Admin() {
@@ -39,11 +40,12 @@ function Admin() {
     };
 
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             Hello, {user?.email}
             <button className='btn' onClick={handleLogout}>
                 Logout
             </button>
+            <TeamsData />
         </div>
     );
 }
