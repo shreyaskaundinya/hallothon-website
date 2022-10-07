@@ -69,6 +69,7 @@ function RegistrationForm() {
                         branch: 'CSE',
                         phone: '',
                         gender: 'M',
+                        github: '',
                         guardian_name: '',
                         guardian_phone: '',
                         is_hostellite: false,
