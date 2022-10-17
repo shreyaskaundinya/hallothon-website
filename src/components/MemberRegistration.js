@@ -77,7 +77,6 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         value={member.campus}>
                         <option value='EC'>EC Campus</option>
                         <option value='RR'>RR Campus</option>
-                        <option value='HN'>HN Campus</option>
                     </select>
                 </label>
                 <label htmlFor='sem'>
@@ -110,6 +109,7 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         <option value='MEC'>Mechanical</option>
                         <option value='CIV'>Civil</option>
                         <option value='BTE'>Bio Tech</option>
+                        <option value='DES'>Design</option>
                     </select>
                 </label>
                 <label htmlFor='phone'>
@@ -136,6 +136,15 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         <option value='NB'>Non Binary</option>
                         <option value='O'>Other</option>
                     </select>
+                </label>
+                <label htmlFor='github'>
+                    Github Link
+                    <input
+                        type='text'
+                        name='github'
+                        onChange={handleUpdate}
+                        value={member.github}
+                    />
                 </label>
                 <label htmlFor='guardian_name'>
                     Guardian Name
@@ -165,14 +174,14 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         name='is_hostellite'
                         onChange={handleUpdate}
                         value={member.is_hostellite}>
-                        <option value='true'>YES</option>
-                        <option value='false' >NO</option>
+                        <option value='true'>Yes</option>
+                        <option value='false' >No</option>
                     </select>
                 </label>
                 {member.is_hostellite && (
                     <label htmlFor='hostel_room_no'>
                         Hostel Room No
-                        <input required type='number' name='hostel_room_no' onChange={handleUpdate}
+                        <input required type='text' name='hostel_room_no' onChange={handleUpdate}
                         value={member.hostel_room_no}></input>
                     </label>
                 )}
