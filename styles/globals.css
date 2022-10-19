@@ -1,6 +1,10 @@
 @import 'Button.css';
 @import 'Navbar.css';
-
+@import 'Hero.css';
+@import 'AboutUs.css';
+@import 'Footer.css';
+@import url(https://allfont.net/allfont.css?fonts=agency-fb);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,8 +13,11 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Agency FB', sans-serif;;
+    /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }
 
 a {

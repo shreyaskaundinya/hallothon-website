@@ -1,0 +1,32 @@
+.about-us{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.stripes{
+    position: relative;
+}
+
+.stripes::after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(2deg,#000000 0%, transparent 45%);
+}
+
+.about-text{
+    padding: 0 3rem;
+}
+.about-text h1{
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.about-text p{
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}

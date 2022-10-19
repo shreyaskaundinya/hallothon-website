@@ -1,5 +1,9 @@
 import Head from 'next/head';
+import AboutUs from '../src/components/AboutUs';
+import Footer from '../src/components/Footer';
+import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
+import Sponsor from '../src/components/Sponsor';
 export default function Home() {
     return (
         <div>
@@ -12,6 +16,10 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Navbar/>
+            <Hero/>
+            <Sponsor/>
+            <AboutUs/>
+            <Footer className='absolute b-0'/>
         </div>
     );
 }

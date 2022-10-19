@@ -1,0 +1,49 @@
+.main-title{
+    font-family: 'Poppins';
+    font-size: 8vw;
+}
+.skull{
+    position: absolute;
+    width: 27.5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.stroke-text{
+    -webkit-text-stroke: 3px #AC1B1D;
+    -webkit-text-fill-color: #000000;
+    font-size:10.5vw   ;
+}
+.year{
+    font-family: 'Agency FB';
+    padding-right: 10vw;
+    font-size:4vw;
+}
+.timer-container{
+    height: 6vw;
+    border-top: 2px solid #AC1B1D;
+    border-bottom: 2px solid #AC1B1D;
+    align-items: center;
+    font-size: 1.5vw;
+}
+.register-button-container{
+    padding-left: 10vw;
+}
+.timer-container div{
+    border-right: 2px solid #AC1B1D;
+    padding: 0 8vw;
+}
+.timer-container div:last-child{
+    border-right: none;
+}
+.timer-container span{
+    font-size: 3vw;
+    margin-right: 1vw;
+}
+.heading{
+    font-size: 4vw;
+}
+.sponsor-logo{
+    /* width: 50vw; */
+    /* height: 20vw; */
+}

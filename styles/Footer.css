@@ -1,0 +1,13 @@
+.logo-links{
+background: #FB3020;
+    border-radius: 50%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 2rem;
+    height:2rem;
+}
+.logo-links svg{
+    width: 50%;
+    color: #ffffff;
+}

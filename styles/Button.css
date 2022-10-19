@@ -1,3 +1,42 @@
 .btn {
     @apply border-none rounded-lg px-3 py-2 bg-black text-white hover:rotate-3 transition-all duration-150 ease-in-out origin-center hover:shadow-md hover:shadow-orange-300;
 }
+
+.register-button {
+    position: relative;
+    padding: 0.5rem 3rem;
+    background: transparent;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 2rem;
+    transition: all 0.3s ease-out;
+    height: min-content;
+}
+.register-button::before {
+    content: "";
+    transition: all 0.3s ease-out;
+    position: absolute;
+    inset: 0;
+    border-radius: 5px; 
+    padding: 4px; 
+    background:linear-gradient(90deg, #721213, #EF1B0D) ; 
+    -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude; 
+}
+
+
+.register-button:hover{
+    background-color: #EF1B0D;
+    border-radius: 0 20px 0 20px;
+    color: #000000;
+    transition: all 0.2s ease-in;
+}
+.register-button:hover:before{
+    border-radius: 0 20px 0 20px;
+    background: none;
+    background-color: #EF1B0D;
+}
