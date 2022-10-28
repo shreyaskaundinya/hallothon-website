@@ -5,6 +5,8 @@ import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
 import Sponsor from '../src/components/Sponsor';
 import Faq from '../src/components/Faq';
+import Prizepool from '../src/components/Prizepool';
+
 export default function Home() {
     return (
         <div>
@@ -18,6 +20,7 @@ export default function Home() {
             </Head>
             <Navbar/>
             <Hero/>
+            <Prizepool/>
             <Sponsor/>
             <AboutUs/>
             <Faq/>

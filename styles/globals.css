@@ -3,6 +3,7 @@
 @import 'Hero.css';
 @import 'AboutUs.css';
 @import 'Footer.css';
+@import 'Prizepool.css';
 @import url(https://allfont.net/allfont.css?fonts=agency-fb);
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 @tailwind base;
