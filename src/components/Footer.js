@@ -1,5 +1,5 @@
-import Logo from '../Assets/footerLogo.svg'
-import Instagram from '../Assets/instagram.svg'
+import Logo from '../assets/footerLogo.svg'
+import Instagram from '../assets/instagram.svg'
 import Image from 'next/image';
 function Footer(){
     return (

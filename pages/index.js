@@ -4,6 +4,7 @@ import Footer from '../src/components/Footer';
 import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
 import Sponsor from '../src/components/Sponsor';
+import Faq from '../src/components/Faq';
 export default function Home() {
     return (
         <div>
@@ -19,6 +20,7 @@ export default function Home() {
             <Hero/>
             <Sponsor/>
             <AboutUs/>
+            <Faq/>
             <Footer className='absolute b-0'/>
         </div>
     );
