@@ -2,6 +2,7 @@
 @import 'Navbar.css';
 @import 'Hero.css';
 @import 'AboutUs.css';
+@import 'Faq.css';
 @import 'Footer.css';
 @import 'Prizepool.css';
 @import url(https://allfont.net/allfont.css?fonts=agency-fb);
@@ -16,7 +17,7 @@ body {
     margin: 0;
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Agency FB', sans-serif;;
+    font-family: 'Agency FB', sans-serif;
     /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
 }

@@ -1,0 +1,29 @@
+.faq {
+    @apply flex flex-row my-12;
+}
+
+.faq__text h1 {
+    @apply text-step-8;
+}
+
+.faq__quest {
+    @apply text-step-4 border-b border-hallored p-4;
+}
+
+.faq__quest:hover {
+    background-color: #212121;
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.faq__container {
+    @apply flex flex-col gap-4 max-w-7xl mx-auto;
+}
+
+.faq__arrow {
+    padding: 0.2rem;
+    color: #ac1b1d;
+}
+
+.faq__ans {
+    @apply py-2 px-4 text-xl;
+}

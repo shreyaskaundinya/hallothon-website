@@ -5,7 +5,9 @@ module.exports = {
     ],
     theme: {
         extend: {
-            colors: {},
+            colors: {
+                hallored: '#ac1b1d',
+            },
             fontSize: {
                 'step--2': 'clamp(0.99rem, 1.12rem + -0.68vw, 0.64rem)',
                 'step--1': 'clamp(1.05rem, 1.15rem + -0.5vw, 0.8rem)',
@@ -22,9 +24,9 @@ module.exports = {
                 'step-10': 'clamp(2.6rem, -0.44rem + 12.4vw, 14rem)',
             },
             fontFamily: {
-                'redhat': ['REDHAT', 'sans-serif'],
-                'poppins': ['Poppins'],
-                'agency': ['Agency FB']
+                redhat: ['REDHAT', 'sans-serif'],
+                poppins: ['Poppins'],
+                agency: ['Agency FB'],
             },
         },
     },

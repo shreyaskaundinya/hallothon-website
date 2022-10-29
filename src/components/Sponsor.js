@@ -1,13 +1,14 @@
 import Image from 'next/image';
-import Cloudera from '../assets/cloudera.png';
 function Sponsor() {
     return (
         <div className='w-full flex flex-col justify-center items-center my-20 font-bold'>
-            <h2 className='heading'>Sponsored By</h2>
+            <h2 className='text-step-8'>Sponsored By</h2>
             <Image
-                src={Cloudera}
+                src='/assets/cloudera.png'
                 className='sponsor-logo'
-                alt='Cloudera'></Image>
+                alt='Cloudera'
+                width={368}
+                height={91}></Image>
         </div>
     );
 }
