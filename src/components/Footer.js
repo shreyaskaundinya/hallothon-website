@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Logo from '../Assets/footerLogo.svg';
-import Instagram from '../Assets/instagram.svg';
+import Logo from '../assets/footerLogo.svg';
+import Instagram from '../assets/instagram.svg';
 function Footer() {
     return (
         <div className='w-full flex lg:flex-row justify-around p-10 flex-col'>

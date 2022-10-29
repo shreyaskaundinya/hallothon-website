@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import AboutUs from '../src/components/AboutUs';
+import Faq from '../src/components/Faq';
 import Footer from '../src/components/Footer';
 import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
+import Prizepool from '../src/components/Prizepool';
 import Sponsor from '../src/components/Sponsor';
+
 export default function Home() {
     return (
         <div>
@@ -17,8 +20,10 @@ export default function Home() {
             </Head>
             <Navbar />
             <Hero />
+            <Prizepool />
             <Sponsor />
             <AboutUs />
+            <Faq />
             <Footer className='absolute b-0' />
         </div>
     );
