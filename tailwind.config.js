@@ -22,7 +22,9 @@ module.exports = {
                 'step-10': 'clamp(2.6rem, -0.44rem + 12.4vw, 14rem)',
             },
             fontFamily: {
-                'red-hat': ['REDHAT', 'sans-serif'],
+                'redhat': ['REDHAT', 'sans-serif'],
+                'poppins': ['Poppins'],
+                'agency': ['Agency FB']
             },
         },
     },

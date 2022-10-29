@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     background-color: #000000;
     color: #ffffff;
     font-size: 1.5em;
@@ -9,22 +9,22 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 2px solid #EF1B0D;
+    border-bottom: 2px solid #ef1b0d;
 }
-.hallothon-logo{
-    border-left: 2px solid #EF1B0D;
+
+.hallothon-logo {
+    border-left: 2px solid #ef1b0d;
     /* height: 70%; */
 }
-.links{
+.links {
     display: flex;
     width: 50%;
     justify-content: space-around;
 }
-.links a{
+.links a {
     transition: all 0.1s ease-in;
-
 }
-.links a:hover{
-    color: #EF1B0D;
+.links a:hover {
+    color: #ef1b0d;
     transition: all 0.1s ease-in;
 }
