@@ -15,7 +15,7 @@ function Hero(){
                 <RegisterButton/>
                 <h2 className="w-full main-title text-right stroke-text leading-tight pr-20">THON</h2>
             </div>
-            <Timer/>
+            {/* <Timer/> */}
         </div>
     )
 }
