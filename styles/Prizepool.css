@@ -4,20 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap : 5rem
+    gap : 5rem;
+    position: relative;
 }
-.prizepoolbox2{
-    padding: 1rem;
-    position: absolute;
-    background: #212121;
-    width: 24.5pc;
-    height: 6pc;
-    left: 35pc;
-    top: 56pc;
-    display: flex;
-    flex-direction: column;
-}
-
 .prizepoolbox1{
     padding: 1rem;
     position: absolute;
@@ -25,10 +14,12 @@
     width: 24.5pc;
     height: 6pc;
     left: 4pc;
-    top: 56pc;
+    top: 8pc;
     display: flex;
     flex-direction: column;
+    border-radius: 0.8rem;
 }
+
 .prizepoolbox3{
     padding: 1rem;
     position: absolute;
@@ -36,9 +27,23 @@
     width: 24.5pc;
     height: 6pc;
     right: 4pc;
-    top: 56pc;
+    top: 8pc;
     display: flex;
     flex-direction: column;
+    border-radius: 0.8rem;
+}
+
+.prizepoolbox2{
+    padding: 1rem;
+    position: absolute;
+    background: #212121;
+    width: 24.5pc;
+    height: 6pc;
+    right: 35pc;
+    top: 8pc;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.8rem;
 }
 
 .ppheading{
@@ -55,14 +60,14 @@
 .ppborderl{
     position: absolute;
     left: 0.5pc;
-    top: 52pc;
+    top: 4pc;
 
 }
 
 .ppborderr{
     position: absolute;
     right: 0.5pc;
-    top: 52pc;
+    top: 4pc;
 
 }
 
