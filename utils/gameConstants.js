@@ -24,4 +24,4 @@ export const HEIGHT_GROUND = 59;
 // pipes
 export const PIPE_WIDTH = 40;
 export const PIPE_HEIGHT = CANVAS_HEIGHT / 2;
-export const PIPE_GAP = CANVAS_HEIGHT / 2 - HEIGHT_GROUND - WITCH_HEIGHT - 25;
+export const PIPE_GAP = CANVAS_HEIGHT / 2 - HEIGHT_GROUND - WITCH_HEIGHT - 15;

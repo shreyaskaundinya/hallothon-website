@@ -45,15 +45,17 @@ function Navbar() {
                     className='hallothon-logo'
                 />
             </div>
-            <div className='navbar navbar-mobile sm:hidden'>
-                <Image
-                    src='/assets/hamburger.svg'
-                    alt='Menu'
-                    height={32}
-                    width={32}
-                    onClick={toggleMenu}
-                />
-                <div>
+            <div className='navbar navbar-mobile sm:hidden relative items-center'>
+                <div className='z-50'>
+                    <Image
+                        src='/assets/hamburger.svg'
+                        alt='Menu'
+                        height={32}
+                        width={32}
+                        onClick={toggleMenu}
+                    />
+                </div>
+                <div className='absolute top-0 left-0 right-0 bottom-0 grid place-items-center'>
                     <Image
                         src='/assets/hallothon_logo.svg'
                         alt='Hallothon'
@@ -61,20 +63,25 @@ function Navbar() {
                         width={(1.2 / 3) * 269}
                     />
                 </div>
-                <Image
-                    src='/assets/pes.svg'
-                    alt='PES'
-                    width={109}
-                    height={34}
-                />
+                <div>
+                    <Image
+                        src='/assets/pes.svg'
+                        alt='PES'
+                        width={109}
+                        height={34}
+                    />
+                </div>
             </div>
             <div>
                 {isOpen && (
-                    <div className='links flex-col w-full text-center z-50'>
-                        <a href='/create'>Register</a>
-                        <a href='/'>FYI</a>
-                        <a href='/'>About Us</a>
-                        <a href='/'>Contact </a>
+                    <div className='links flex-col w-full text-center z-50 bg-black gap-4 py-4'>
+                        {paths.map((p) => {
+                            return p.path.charAt(0) === '/' ? (
+                                <Link href={p.path}>{p.name}</Link>
+                            ) : (
+                                <a href={p.path}>{p.name}</a>
+                            );
+                        })}
                     </div>
                 )}
             </div>

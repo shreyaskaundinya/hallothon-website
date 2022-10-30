@@ -95,7 +95,7 @@ function Game() {
     useEffect(() => {
         if (window.innerWidth < 1200) {
             setJumpSpeed(() => -750);
-            setFallSpeed(() => -6000);
+            setFallSpeed(() => -4500);
             setSpeed(() => 2);
         }
     }, []);
@@ -210,16 +210,15 @@ function Game() {
     };
 
     const drawGameOver = (context) => {
-        context.fillStyle = '#000';
-        context.fillRect(0, 0, constants.CANVAS_WIDTH, constants.CANVAS_HEIGHT);
-
-        context.fillStyle = 'white';
-        context.font = '200px Roboto';
-        context.fillText(
-            'L',
-            constants.CANVAS_WIDTH / 2 - 80,
-            constants.CANVAS_HEIGHT / 2 + 20
-        );
+        // context.fillStyle = '#000';
+        // context.fillRect(0, 0, constants.CANVAS_WIDTH, constants.CANVAS_HEIGHT);
+        // context.fillStyle = 'white';
+        // context.font = '80px Roboto';
+        // context.fillText(
+        //     'Game Over!',
+        //     constants.CANVAS_WIDTH / 2 - 40,
+        //     constants.CANVAS_HEIGHT / 2
+        // );
     };
 
     useEffect(() => {

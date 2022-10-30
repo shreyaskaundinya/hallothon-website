@@ -22,7 +22,7 @@ function Footer() {
                     <Image src='/assets/instagram.svg' width={65} height={65} />
                 </div>
                 <h3 className='text-xl'>PES UNIVERSITY</h3>
-                <p className='text-l'>
+                <p className='text-lg font-agency'>
                     100 Feet Ring Road, BSK III Stage,Bangalore-560085
                 </p>
                 <h2 className='text-zinc-500 mt-2'>

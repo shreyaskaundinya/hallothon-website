@@ -13,7 +13,7 @@
 }
 
 .navbar-mobile {
-    @apply grid grid-flow-col;
+    @apply flex justify-between px-4;
 }
 
 .hallothon-logo {
