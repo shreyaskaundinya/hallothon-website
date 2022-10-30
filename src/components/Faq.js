@@ -3,10 +3,12 @@ import FaqCard from './FaqCard';
 
 function Faq() {
     return (
-        <div className='max-w-7xl mx-auto my-56'>
+        <div className='max-w-7xl mx-auto my-56' id='faq'>
             <div className='faq'>
-                <div className='faq__text'>
-                    <h1>FAQS</h1>
+                <div className='w-screen'>
+                    <h1 className='text-6xl font-bold text-center md:text-step-8'>
+                        FAQS
+                    </h1>
                 </div>
             </div>
             <div className='faq__container'>

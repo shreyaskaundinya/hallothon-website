@@ -25,8 +25,8 @@ module.exports = {
             },
             fontFamily: {
                 redhat: ['REDHAT', 'sans-serif'],
-                poppins: ['Poppins'],
-                agency: ['Agency FB'],
+                poppins: ['Poppins', 'sans-serif'],
+                agency: ['Inconsolata', 'monospace'],
             },
         },
     },

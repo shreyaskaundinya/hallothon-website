@@ -209,6 +209,19 @@ function Game() {
         // router.reload();
     };
 
+    const drawGameOver = (context) => {
+        context.fillStyle = '#000';
+        context.fillRect(0, 0, constants.CANVAS_WIDTH, constants.CANVAS_HEIGHT);
+
+        context.fillStyle = 'white';
+        context.font = '200px Roboto';
+        context.fillText(
+            'L',
+            constants.CANVAS_WIDTH / 2 - 80,
+            constants.CANVAS_HEIGHT / 2 + 20
+        );
+    };
+
     useEffect(() => {
         if (canvas.current) {
             const context = canvas.current.getContext('2d');
@@ -218,6 +231,8 @@ function Game() {
                     if (touchedPipe() || fallOut()) {
                         setShowModal(true);
                         reset();
+                        drawGameOver(context);
+                        return;
                     }
 
                     // check if we should give another score
@@ -265,10 +280,15 @@ function Game() {
 
     return (
         <div className='my-40 overflow-hidden' onClick={jump} onKeyUp={handler}>
-            <div className='max-w-7xl mx-auto mb-4'>
-                <h1 className='text-6xl md:text-step-8'>Bored?</h1>
+            <div className='max-w-7xl mx-auto mb-8'>
+                <h1 className='text-6xl md:text-step-8 text-center font-bold'>
+                    Bored?
+                </h1>
+                <p className='text-center font-poppins'>
+                    Play Spooooooky Bird 👻 👻 👻 👻 👻
+                </p>
             </div>
-            <div className='max-w-7xl mx-auto bg-gray-600 py-6'>
+            <div className='max-w-7xl mx-auto sm:bg-gray-600 py-6'>
                 <canvas
                     className='mx-auto'
                     ref={canvas}
@@ -285,8 +305,8 @@ function Game() {
                         Refresh
                     </button>
                 </div>
-                <div className='border-t border-white my-4 py-4'>
-                    <p className='text-step-1'>
+                <div className='border-t border-white my-4 py-4 font-agency'>
+                    <p className='text-step-2'>
                         Game Ported from :{' '}
                         <a
                             target='_blank'
@@ -298,16 +318,16 @@ function Game() {
                     <h4 className='text-step-2 font-bold'>
                         Things to remember :
                     </h4>
-                    <p className='text-step-1'>
+                    <p className='text-step-0 list-item ml-4'>
                         Click on the Game Screen to start the game
                     </p>
-                    <p className='text-step-1'>
+                    <p className='text-step-0 list-item ml-4'>
                         Click Refresh to refresh the game
                     </p>
-                    <p className='text-step-1'>
+                    <p className='text-step-0 list-item ml-4'>
                         Use 'W' or Mouse Click to move the witch
                     </p>
-                    <p className='text-step-1'>
+                    <p className='text-step-0 list-item ml-4'>
                         Game broken?{' '}
                         <button
                             className='underline text-blue-700'

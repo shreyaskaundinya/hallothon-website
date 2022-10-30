@@ -1,7 +1,7 @@
 import Image from 'next/image';
 function AboutUs() {
     return (
-        <div className='about-us mt-40 mb-56 overflow-hidden'>
+        <div className='about-us mt-40 mb-56 overflow-hidden' id='aboutus'>
             <div className='stripes'>
                 <Image
                     src='/assets/stripe1.svg'
@@ -11,8 +11,10 @@ function AboutUs() {
                 />
             </div>
             <div className='max-w-7xl'>
-                <h1 className='text-step-8'>ABOUT US</h1>
-                <p className='text-step-2'>
+                <h1 className='text-6xl md:text-step-8 my-4 font-bold text-center'>
+                    About Us
+                </h1>
+                <p className='text-step-1 sm:text-step-2 font-poppins'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim, quis nostrud exercitation ullamco

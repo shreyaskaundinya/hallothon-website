@@ -1,6 +1,11 @@
 .main-title {
     font-family: 'Poppins';
-    font-size: 8vw;
+    font-size: clamp(8rem, 4vw+10px, 12rem);
+}
+
+.sub-title {
+    font-family: 'Poppins';
+    font-size: clamp(6rem, 7vw + 12px, 12rem);
 }
 
 /* .skull {

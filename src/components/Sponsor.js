@@ -2,7 +2,7 @@ import Image from 'next/image';
 function Sponsor() {
     return (
         <div className='w-full flex flex-col justify-center items-center my-20 font-bold'>
-            <h2 className='text-step-8'>Sponsored By</h2>
+            <h1 className='text-6xl md:text-step-8'>Sponsored By</h1>
             <Image
                 src='/assets/cloudera.png'
                 className='sponsor-logo'

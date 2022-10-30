@@ -20,6 +20,8 @@ body {
     font-family: 'Agency FB', sans-serif;
     /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+    scroll-behavior: smooth;
+    @apply scroll-pt-40;
 }
 
 a {
@@ -36,13 +38,28 @@ label {
 }
 
 input {
-    @apply border-2 rounded-lg px-1 py-1 focus:outline-none focus:border-orange-200;
+    @apply rounded-lg px-1 py-1 focus:outline-none focus:border-orange-200 bg-zinc-700;
 }
 
 textarea {
-    @apply border-2 rounded-lg px-1 py-1 focus:outline-none focus:border-orange-200;
+    @apply rounded-lg px-1 py-1 focus:outline-none focus:border-orange-200 bg-zinc-700;
 }
 
 select {
-    @apply border-2 rounded-lg px-1 py-1 focus:outline-none focus:border-orange-200;
+    @apply rounded-lg px-1 py-2 focus:outline-none focus:border-orange-200  bg-zinc-700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a {
+    @apply font-agency;
+}
+
+.get-border * {
+    border: 1px solid white;
 }

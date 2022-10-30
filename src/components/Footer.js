@@ -2,7 +2,9 @@ import Image from 'next/image';
 
 function Footer() {
     return (
-        <div className='w-full flex lg:flex-row justify-around p-10 flex-col items-start border-t-4 border-t-hallored'>
+        <div
+            className='w-full flex lg:flex-row justify-around p-10 flex-col items-start border-t-4 border-t-hallored'
+            id='contact'>
             <div className='flex flex-col footer-col justify-start gap-2 '>
                 <div>
                     <Image

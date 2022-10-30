@@ -32,7 +32,7 @@ function Timer() {
     }, []);
 
     return (
-        <div className='bg-black timer-container flex justify-evenly items-center h-24 sm:h-24'>
+        <div className='bg-black timer-container flex justify-evenly items-center h-24 sm:h-24 overflow-hidden'>
             <div>
                 <span className='pr-2'>
                     {timeLeft[0] < 10 ? '0' + timeLeft[0] : timeLeft[0]}

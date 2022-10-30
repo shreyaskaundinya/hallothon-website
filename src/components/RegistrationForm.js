@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { supabase } from '../../utils/supabaseClient';
 import MemberRegistration from './MemberRegistration';
-import { supabase } from '../../utils/supabaseClient'
 
 function RegistrationForm() {
     const [teamDetails, setTeamDetails] = useState({
@@ -37,7 +37,7 @@ function RegistrationForm() {
             setMemberDetails(() => JSON.parse(membersData));
         }
 
-        return () => { };
+        return () => {};
     }, []);
 
     const updateTeamDetails = useCallback(
@@ -122,19 +122,25 @@ function RegistrationForm() {
         for (let i = 0; i < memberDetails.length; i++) {
             const member = memberDetails[i];
             if (
-                (member.name === '' ||
-                    member.email === '' ||
-                    member.srn === '' ||
-                    member.phone === '' ||
-                    member.guardian_name === '' ||
-                    member.guardian_phone === '')
+                member.name === '' ||
+                member.email === '' ||
+                member.srn === '' ||
+                member.phone === '' ||
+                member.guardian_name === '' ||
+                member.guardian_phone === ''
             ) {
                 alert(
-                    `Please fill all the fields in the member details section for member ${i + 1}`
+                    `Please fill all the fields in the member details section for member ${
+                        i + 1
+                    }`
                 );
                 return false;
             }
-            if (!member.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+            if (
+                !member.email.match(
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+                )
+            ) {
                 alert('Please enter a valid email address');
                 return;
             }
@@ -144,47 +150,54 @@ function RegistrationForm() {
             }
             if (!member.guardian_phone.match(/^[0-9]{10}$/)) {
                 alert('Please enter a valid guardian phone number');
-                return
+                return;
             }
-            if (!member.srn.match(/^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/)) {
+            if (
+                !member.srn.match(/^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/)
+            ) {
                 alert('Please enter a valid SRN');
-                return
+                return;
             }
         }
         registerTeam(teamDetails, memberDetails);
-    })
+    });
 
-    const registerTeam = useCallback(
-        async (teamDetails, memberDetails) => {
-            const { data, error } = await supabase.from('Team').insert([teamDetails])
-            if (error) {
-
-            }
-            else {
-                let team = await supabase.from('Team').select('id').eq('team_name', teamDetails.team_name)
-                let teamId = team.data[0].id
-                memberDetails.map(async (member) => {
-                    console.log(member);
-                    member.team_id = teamId
-                    member.team_name = teamDetails.team_name
-                    const { data1, error1 } = await supabase.from('Member').insert([member])
-                    let currMember = await supabase.from('Member').select('id').eq('srn', member.srn)
-                    let memberId = currMember.data[0].id
-                    const { data2, error2 } = await supabase.from('MemberStatus').insert([{ member_id: memberId }])
-                    if (error1 || error2) {
-                        alert('Error in registering team')
-                    }
-                    else{
-                        alert('Team registered successfully')
-                    }
-                })
-
-            }
-
+    const registerTeam = useCallback(async (teamDetails, memberDetails) => {
+        const { data, error } = await supabase
+            .from('Team')
+            .insert([teamDetails]);
+        if (error) {
+        } else {
+            let team = await supabase
+                .from('Team')
+                .select('id')
+                .eq('team_name', teamDetails.team_name);
+            let teamId = team.data[0].id;
+            memberDetails.map(async (member) => {
+                console.log(member);
+                member.team_id = teamId;
+                member.team_name = teamDetails.team_name;
+                const { data1, error1 } = await supabase
+                    .from('Member')
+                    .insert([member]);
+                let currMember = await supabase
+                    .from('Member')
+                    .select('id')
+                    .eq('srn', member.srn);
+                let memberId = currMember.data[0].id;
+                const { data2, error2 } = await supabase
+                    .from('MemberStatus')
+                    .insert([{ member_id: memberId }]);
+                if (error1 || error2) {
+                    alert('Error in registering team');
+                } else {
+                    alert('Team registered successfully');
+                }
+            });
         }
-    );
+    });
     return (
-        <div className='max-w-5xl mx-auto my-10 p-2'>
+        <div className='max-w-5xl mx-auto my-20 p-2 font-agency'>
             <div className='flex justify-between items-center'>
                 <h1 className='text-step-4 font-bold'>Registration Form</h1>
                 <div className='flex flex-row gap-2'>
@@ -196,7 +209,7 @@ function RegistrationForm() {
                     </button>
                 </div>
             </div>
-            <form className='text-black'>
+            <form className='flex flex-col gap-4'>
                 <label htmlFor='team_name'>
                     Team Name
                     <input

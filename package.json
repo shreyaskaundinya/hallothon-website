@@ -1,25 +1,25 @@
 {
-  "name": "hallothon-website",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev -p 5000",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "^2.0.0-rc.10",
-    "autoprefixer": "^10.4.12",
-    "gsap": "^3.11.3",
-    "next": "12.3.1",
-    "postcss": "^8.4.17",
-    "postcss-import": "^15.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-spring": "^9.5.5",
-    "react-use": "^17.4.0",
-    "react-icons": "^4.6.0",
-    "styled-components": "^5.3.6",
-    "tailwindcss": "^3.1.8"
-  }
+    "name": "hallothon-website",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "^2.0.0-rc.10",
+        "autoprefixer": "^10.4.12",
+        "gsap": "^3.11.3",
+        "next": "12.3.1",
+        "postcss": "^8.4.17",
+        "postcss-import": "^15.0.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-spring": "^9.5.5",
+        "react-use": "^17.4.0",
+        "react-icons": "^4.6.0",
+        "styled-components": "^5.3.6",
+        "tailwindcss": "^3.1.8"
+    }
 }

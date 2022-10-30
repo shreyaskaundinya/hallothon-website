@@ -10,7 +10,7 @@ import Sponsor from '../src/components/Sponsor';
 
 export default function Home() {
     return (
-        <div>
+        <div className=''>
             <Head>
                 <title>Hallothon</title>
                 <meta

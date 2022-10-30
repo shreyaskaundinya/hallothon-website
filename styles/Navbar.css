@@ -11,13 +11,15 @@
     align-items: center;
     border-bottom: 2px solid #ef1b0d;
 }
-.navbar-mobile{
-    display: flex;
+
+.navbar-mobile {
+    @apply grid grid-flow-col;
 }
-.hallothon-logo{
-    border-left: 2px solid #EF1B0D;
-    /* height: 70%; */
+
+.hallothon-logo {
+    border-left: 2px solid #ef1b0d;
 }
+
 .links {
     display: flex;
     width: 50%;

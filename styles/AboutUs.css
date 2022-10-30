@@ -4,7 +4,7 @@
 
 .stripes {
     position: relative;
-    @apply border w-full;
+    @apply w-full;
 }
 
 .stripes::after {

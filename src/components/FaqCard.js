@@ -36,7 +36,7 @@ function FaqCard({ q, ans }) {
             <button type='button' className='' onClick={handleClick}>
                 <a className='faq__arrow'>&#10148;</a> {q}
             </button>
-            <animated.div style={expand} className='faq__ans'>
+            <animated.div style={expand} className='faq__ans font-poppins'>
                 <div ref={ref} className='pointer-events-none'>
                     {ans}
                 </div>

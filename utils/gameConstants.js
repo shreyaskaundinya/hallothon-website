@@ -10,7 +10,7 @@ export const CLOUDS_X = 700;
 export const CLOUDS_Y = 0;
 
 // bird
-export const WITCH_SRC = '../../../images/witch.png';
+export const WITCH_SRC = '../../../images/raven.png';
 export const WITCH_HEIGHT = 100;
 export const WITCH_WIDTH = 100;
 
@@ -24,4 +24,4 @@ export const HEIGHT_GROUND = 59;
 // pipes
 export const PIPE_WIDTH = 40;
 export const PIPE_HEIGHT = CANVAS_HEIGHT / 2;
-export const PIPE_GAP = CANVAS_HEIGHT / 2 - HEIGHT_GROUND - WITCH_HEIGHT;
+export const PIPE_GAP = CANVAS_HEIGHT / 2 - HEIGHT_GROUND - WITCH_HEIGHT - 25;
