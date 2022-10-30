@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Stripe1 from '../assets/stripe1.svg';
+// import Stripe1 from '/assets/stripe1.svg';
 function AboutUs() {
     return (
         <div className='about-us mt-40 mb-56 overflow-hidden'>
             <div className='stripes'>
                 <Image
-                    src={Stripe1}
+                    src='/assets/stripe1.svg'
                     alt='Stripe'
                     objectFit='cover'
                     layout='fill'
@@ -29,7 +29,7 @@ function AboutUs() {
             </div>
             <div className='stripes'>
                 <Image
-                    src={Stripe1}
+                    src='/assets/stripe2.svg'
                     alt='Stripe'
                     objectFit='cover'
                     layout='fill'

@@ -196,7 +196,7 @@ function RegistrationForm() {
                     </button>
                 </div>
             </div>
-            <form className=''>
+            <form className='text-black'>
                 <label htmlFor='team_name'>
                     Team Name
                     <input

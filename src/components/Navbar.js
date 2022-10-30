@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import PESLogo from '../assets/pes.svg';
+// import PESLogo from '../assets/pes.svg';
 function Navbar() {
     return (
         <div className='navbar'>
-            <Image src={PESLogo} alt='PES' height={100} />
+            <Image src='/assets/pes.svg' alt='PES' height={100} width={150} />
             <div className='links'>
                 <a href='/create'>Register</a>
                 <a href='/'>FYI</a>
@@ -11,9 +11,9 @@ function Navbar() {
                 <a href='/'>Contact </a>
             </div>
             <Image
-                src={PESLogo}
+                src='/assets/hallothon_logo.svg'
                 alt='Hallothon'
-                height={100}
+                height={100} width={150}
                 className='hallothon-logo'
             />
         </div>
