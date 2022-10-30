@@ -6,14 +6,16 @@
     padding: 0;
     height: 4rem;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: center;
     border-bottom: 2px solid #ef1b0d;
 }
-
-.hallothon-logo {
-    border-left: 2px solid #ef1b0d;
+.navbar-mobile{
+    display: flex;
+}
+.hallothon-logo{
+    border-left: 2px solid #EF1B0D;
     /* height: 70%; */
 }
 .links {

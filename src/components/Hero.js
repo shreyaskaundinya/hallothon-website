@@ -69,6 +69,7 @@ function Hero() {
                     </div>
                 </div>
             </div>
+            <Timer/>
         </div>
     );
 }
