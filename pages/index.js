@@ -2,6 +2,7 @@ import Head from 'next/head';
 import AboutUs from '../src/components/AboutUs';
 import Faq from '../src/components/Faq';
 import Footer from '../src/components/Footer';
+import Game from '../src/components/game/Game';
 import Hero from '../src/components/Hero';
 import Navbar from '../src/components/Navbar';
 import Prizepool from '../src/components/Prizepool';
@@ -24,6 +25,7 @@ export default function Home() {
             <Sponsor />
             <AboutUs />
             <Faq />
+            <Game />
             <Footer className='absolute b-0' />
         </div>
     );
