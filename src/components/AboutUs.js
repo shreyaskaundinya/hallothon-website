@@ -1,5 +1,4 @@
 import Image from 'next/image';
-// import Stripe1 from '/assets/stripe1.svg';
 function AboutUs() {
     return (
         <div className='about-us mt-40 mb-56 overflow-hidden'>
@@ -29,7 +28,7 @@ function AboutUs() {
             </div>
             <div className='stripes'>
                 <Image
-                    src='/assets/stripe2.svg'
+                    src='/assets/stripe1.svg'
                     alt='Stripe'
                     objectFit='cover'
                     layout='fill'
