@@ -1,6 +1,6 @@
-import PESLogo from '../assets/pes.svg';
-import HallothonLogo from '../assets/hallothon_logo.svg';
-import Hamburger from '../assets/hamburger.svg';
+// import PESLogo from '/assets/pes.svg';
+// import HallothonLogo from '/assets/hallothon_logo.svg';
+// import Hamburger from '../assets/hamburger.svg';
 import Image from 'next/image';
 import { useState } from 'react';
 // import gsap from 'gsap';
@@ -12,19 +12,19 @@ function Navbar(){
     return (
         <>
         <div className="navbar sm:flex">
-            <Image src={PESLogo} alt="PES" height={100}/>
+            <Image src='/assets/pes.svg' alt="PES" height={100} width={150}/>
             <div className="links">
                 <a href="/create">Register</a>
                 <a href="/">FYI</a>
                 <a href="/">About Us</a>
                 <a href="/">Contact </a>
             </div>
-            <Image src={HallothonLogo} alt="Hallothon" height={80}  className='hallothon-logo'/>
+            <Image src='/assets/hallothon_logo.svg' alt="Hallothon" height={80} width={150}  className='hallothon-logo'/>
         </div>
         <div className='navbar navbar-mobile sm:hidden'>
-            <Image src={Hamburger} alt="Menu" height={100} onClick={toggleMenu}/>
-            <Image src={HallothonLogo} alt="Hallothon" height={80}/>
-            <Image src={PESLogo} alt="PES" height={100}/>
+            <Image src='/assets/hamburger.svg' alt="Menu" height={100}  width={150}onClick={toggleMenu}/>
+            <Image src='/assets/hallothon_logo.svg' alt="Hallothon" height={80} width={150}/>
+            <Image src='/assets/pes.svg' alt="PES" height={100} width={150}/>
         </div>
         <div>
             {isOpen && 

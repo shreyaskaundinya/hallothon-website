@@ -69,10 +69,7 @@ function Hero() {
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-=======
-            {/* <Timer/> */}
->>>>>>> Navbar
+            <Timer/>
         </div>
     );
 }
