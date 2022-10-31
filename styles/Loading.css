@@ -1,0 +1,19 @@
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 1400;
+    background-color: #111;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.loading__header {
+    font-size: 20vw;
+    color: #fff;
+}
