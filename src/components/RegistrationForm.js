@@ -1,8 +1,12 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { supabase } from '../../utils/supabaseClient';
 import MemberRegistration from './MemberRegistration';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { toast, ToastContainer } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 function RegistrationForm() {
+    const router = useRouter()
     const [teamDetails, setTeamDetails] = useState({
         team_name: '',
         problem: '',
@@ -11,8 +15,8 @@ function RegistrationForm() {
     });
 
     const [membersDetails, setMemberDetails] = useState([]);
-
-    const MAX_MEMBERS = useMemo(() => 4, []);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const submitButton = useRef(null);
 
     const saveToLocalStorage = () => {
         console.log('SAVING TO LS', teamDetails);
@@ -29,7 +33,15 @@ function RegistrationForm() {
     useEffect(() => {
         const teamsData = localStorage.getItem('hallothon-saved-team-data');
         const membersData = localStorage.getItem('hallothon-saved-member-data');
-
+        if (isSubmitting) {
+            saveToLocalStorage();
+            submitButton.current.style.backgroundColor = 'black';
+            submitButton.current.style.pointerEvents = 'none';
+        }
+        else{
+            submitButton.current.style.backgroundColor = '#3f3f46';
+            submitButton.current.style.pointerEvents = 'all';
+        }
         if (teamsData) {
             setTeamDetails(() => JSON.parse(teamsData));
         }
@@ -37,8 +49,8 @@ function RegistrationForm() {
             setMemberDetails(() => JSON.parse(membersData));
         }
 
-        return () => {};
-    }, []);
+        return () => { };
+    }, [isSubmitting]);
 
     const updateTeamDetails = useCallback(
         (e) => {
@@ -104,77 +116,81 @@ function RegistrationForm() {
         [membersDetails]
     );
     const validateData = useCallback(async (teamDetails, memberDetails) => {
+        setIsSubmitting(true);
         const { data, error } = await supabase
             .from('Team')
             .select('team_name')
-        if(error){
-            alert('Server Error! Please try again later');
+        if (error) {
+            toast('Server Error', { type: 'error' });
+            setIsSubmitting(false);
         }
-        else{
+        else {
             let teamNames = data.map((x) => x.team_name)
-            // console.log(teamNames.includes(teamDetails.team_name));
-            if((teamNames.includes(teamDetails.team_name)))
-            {
-                alert('Team Name already exists');
-                return false;
-            }
-        if (
-            teamDetails.team_name === '' ||
-            // teamDetails.problem === '' ||
-            teamDetails.solution === '' ||
-            teamDetails.domain === ''
-        ) {
-            alert('Please fill all the fields in the team details section');
-            return false;
-        }
-
-        if (memberDetails.length < 3 || memberDetails.length > 4) {
-            alert('Team should have atleast 3 and atmost 4 members');
-            return false;
-        }
-
-        for (let i = 0; i < memberDetails.length; i++) {
-            const member = memberDetails[i];
-            if (
-                member.name === '' ||
-                member.email === '' ||
-                member.srn === '' ||
-                member.phone === '' ||
-                member.guardian_name === '' ||
-                member.guardian_phone === ''
-            ) {
-                alert(
-                    `Please fill all the fields in the member details section for member ${
-                        i + 1
-                    }`
-                );
+            if ((teamNames.includes(teamDetails.team_name))) {
+                toast('Team name already exists', { type: 'error' });
+                setIsSubmitting(false);
                 return false;
             }
             if (
-                !member.email.match(
-                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-                )
+                teamDetails.team_name === '' ||
+                teamDetails.solution === '' ||
+                teamDetails.domain === ''
             ) {
-                alert('Please enter a valid email address');
-                return;
+                toast('Please fill all the fields in the team details section', { type: 'error', position: 'top-right' });
+                setIsSubmitting(false);
+                return false;
             }
-            if (!member.phone.match(/^[0-9]{10}$/)) {
-                alert('Please enter a valid phone number');
-                return;
+
+            if (memberDetails.length < 3 || memberDetails.length > 4) {
+                toast('Team should have atleast 3 and atmost 4 members', { type: 'error', position: 'top-right' });
+                setIsSubmitting(false);
+                return false;
             }
-            if (!member.guardian_phone.match(/^[0-9]{10}$/)) {
-                alert('Please enter a valid guardian phone number');
-                return;
+
+            for (let i = 0; i < memberDetails.length; i++) {
+                const member = memberDetails[i];
+                if (
+                    member.name === '' ||
+                    member.email === '' ||
+                    member.srn === '' ||
+                    member.phone === '' ||
+                    member.guardian_name === '' ||
+                    member.guardian_phone === ''
+                ) {
+                    toast(`Please fill all the fields in the member details section for member ${i + 1
+                        }`, { type: 'error', position: 'top-right' });
+                    setIsSubmitting(false);
+                    return false;
+                }
+                if (
+                    !member.email.match(
+                        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+                    )
+                ) {
+                    toast('Please enter a valid email address', { type: 'error', position: 'top-right' });
+                    setIsSubmitting(false);
+                    return;
+                }
+                if (!member.phone.match(/^[0-9]{10}$/)) {
+                    toast('Please enter a valid phone number', { type: 'error', position: 'top-right' });
+                    setIsSubmitting(false);
+                    return;
+                }
+                if (!member.guardian_phone.match(/^[0-9]{10}$/)) {
+                    toast('Please enter a valid guardian phone number', { type: 'error', position: 'top-right' });
+                    setIsSubmitting(false);
+                    return;
+                }
+                if (
+                    !member.srn.match(/^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/)
+                ) {
+                    toast('Please enter a valid SRN', { type: 'error', position: 'top-right' });
+                    setIsSubmitting(false);
+                    return;
+                }
             }
-            if (
-                !member.srn.match(/^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/)
-            ) {
-                alert('Please enter a valid SRN');
-                return;
-            }
+            registerTeam(teamDetails, memberDetails);
         }
-        registerTeam(teamDetails, memberDetails);
-    }
     });
 
     const registerTeam = useCallback(async (teamDetails, memberDetails) => {
@@ -182,7 +198,8 @@ function RegistrationForm() {
             .from('Team')
             .insert([teamDetails]);
         if (error) {
-            alert('Server Error! Please try again later');
+            toast('Server Error! Please try again later', { type: 'error', position: 'top-right' });
+            setIsSubmitting(false);
         } else {
             let team = await supabase
                 .from('Team')
@@ -204,10 +221,14 @@ function RegistrationForm() {
                 const { data2, error2 } = await supabase
                     .from('MemberStatus')
                     .insert([{ member_id: memberId }]);
+                setIsSubmitting(false);
                 if (error1 || error2) {
-                    alert('Error in registering team');
+                    toast('Error in registering team', { type: 'error', position: 'top-right' });
+                    setIsSubmitting(false);
                 } else {
-                    alert('Team registered successfully');
+                    toast('Team Registered Successfully', { type: 'success', position: 'bottom-right', toastId: 'success' });
+                    setIsSubmitting(false);
+                    router.push('/success');
                 }
             });
         }
@@ -236,7 +257,6 @@ function RegistrationForm() {
                         value={teamDetails.team_name}
                     />
                 </label>
-
                 {/* <label htmlFor='problem'>
                     Problem
                     <textarea
@@ -285,17 +305,19 @@ function RegistrationForm() {
                 </div>
 
                 <button
+                    disabled={isSubmitting}
+                    ref={submitButton}
                     className='btn my-2'
                     onClick={(e) => {
                         e.preventDefault();
                         console.log(teamDetails, membersDetails);
                         validateData(teamDetails, membersDetails);
                     }}>
-                    Submit
+                    {isSubmitting ? 'Please Wait...' : 'Submit'}
                 </button>
             </form>
+            <ToastContainer />
         </div>
     );
 }
-
 export default RegistrationForm;
