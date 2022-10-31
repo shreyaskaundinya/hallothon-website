@@ -1,0 +1,725 @@
+/* *:root {
+  font-size: 1.75vw; 
+} */
+/* 
+body {
+background: #000;
+margin: 0;
+display: grid;
+min-height: 100vh;
+} */
+
+#scene {
+width: 100vw; /* using rem/em instead of percentages also facilitates scalability across this insane jumble of transforms */
+height: 25rem;
+place-self: center;
+perspective: 100rem;
+perspective-origin: 50% 75%;
+}
+
+#scene, #scene * {
+transform-style: preserve-3d;
+}
+
+#pumpkin {
+width: 100%;
+height: 100%;
+display: grid;
+position: relative;
+animation: 10s spin linear infinite;
+}
+
+@keyframes spin {
+  0% {
+      transform: rotateY(0deg) scaleY(80%);
+  }
+  100% {
+      transform: rotateY(360deg) scaleY(80%);
+  }
+}
+
+#shading {
+  position: absolute;
+  background: radial-gradient(#000, #000a 50%, #0000 70%); /* subtly obscures the inner wall of the object */
+  inset: 10% 1%;
+  border-radius: 50%;
+}
+
+.fullslice, .shortslice {
+  display: grid;
+  position: absolute;
+  inset: 0;
+  transform: rotateY(calc((var(--turnY) - 1)*15deg));
+}
+
+.triangle {
+justify-self: center;
+position: absolute;
+transform-origin: 50% 0;
+font-size: .25rem;
+padding: .2%;
+}
+
+.triangle:nth-child(odd) {
+  --gradAngle: 0deg;
+}
+
+.triangle:nth-child(even) {
+  --gradAngle: 180deg;
+}
+
+.triangle:after  {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0% 0, 50% 100%, 100% 0);
+  background-size: 25.2em;
+  background-image: repeating-linear-gradient(90deg, hsla(15deg,100%,25%,1.0),hsla(15deg,100%,25%,0) 12.6em, hsla(30deg,100%,50%,0) 12.6em,  hsla(30deg,100%,50%,.15) 25.2em), linear-gradient(var(--gradAngle), hsl(calc(45deg - var(--nth)*2.5deg) 100% calc(50% - var(--nth)*2%)), hsl(calc(45deg - (1 + var(--nth))*2.5deg) 100% calc(50% - (1 + var(--nth))*2%)));
+}
+
+.fullslice:nth-child(odd) .triangle:nth-child(1):after, .fullslice:nth-child(odd) .triangle:nth-last-child(1):after, .fullslice:nth-child(odd) .triangle:nth-child(2):after, .fullslice:nth-child(odd) .triangle:nth-last-child(2):after {
+  background-position-x: -9%;    
+}
+
+.fullslice:nth-child(odd) .triangle:nth-child(3):after, .fullslice:nth-child(odd) .triangle:nth-last-child(3):after, .fullslice:nth-child(odd) .triangle:nth-child(4):after, .fullslice:nth-child(odd) .triangle:nth-last-child(4):after {
+  background-position-x: -31%;    
+}
+
+.fullslice:nth-child(odd) .triangle:nth-child(5):after, .fullslice:nth-child(odd) .triangle:nth-last-child(5):after, .fullslice:nth-child(odd) .triangle:nth-child(6):after, .fullslice:nth-child(odd) .triangle:nth-last-child(6):after {
+  background-position-x: -55%;    
+}
+
+.fullslice:nth-child(2n) .triangle:nth-child(1):after, .fullslice:nth-child(2n) .triangle:nth-last-child(1):after, .fullslice:nth-child(2n) .triangle:nth-child(2):after, .fullslice:nth-child(2n) .triangle:nth-last-child(2):after {
+  background-position-x: 14%;    
+}
+
+.fullslice:nth-child(2n) .triangle:nth-child(3):after, .fullslice:nth-child(2n) .triangle:nth-last-child(3):after, .fullslice:nth-child(2n) .triangle:nth-child(4):after, .fullslice:nth-child(2n) .triangle:nth-last-child(4):after {
+  background-position-x: 38%;    
+}
+
+.fullslice:nth-child(2n) .triangle:nth-child(5):after, .fullslice:nth-child(2n) .triangle:nth-last-child(5):after, .fullslice:nth-child(2n) .triangle:nth-child(6):after, .fullslice:nth-child(2n) .triangle:nth-last-child(6):after {
+  background-position-x: 47%;    
+}
+
+.shortslice:nth-child(odd) .triangle:nth-child(1):after, .shortslice:nth-child(odd) .triangle:nth-last-child(1):after, .shortslice:nth-child(odd) .triangle:nth-child(2):after, .shortslice:nth-child(odd) .triangle:nth-last-child(2):after {
+  background-position-x: 6%;    
+}
+
+.shortslice:nth-child(odd) .triangle:nth-child(3):after, .shortslice:nth-child(odd) .triangle:nth-last-child(3):after, .shortslice:nth-child(odd) .triangle:nth-child(4):after, .shortslice:nth-child(odd) .triangle:nth-last-child(4):after {
+  background-position-x: 6%;    
+}
+
+.shortslice:nth-child(odd) .triangle:nth-child(5):after, .shortslice:nth-child(odd) .triangle:nth-last-child(5):after, .shortslice:nth-child(odd) .triangle:nth-child(6):after, .shortslice:nth-child(odd) .triangle:nth-last-child(6):after {
+  background-position-x: 6%;    
+}
+
+.shortslice:nth-child(2n) .triangle:nth-child(1):after, .shortslice:nth-child(2n) .triangle:nth-last-child(1):after, .shortslice:nth-child(2n) .triangle:nth-child(2):after, .shortslice:nth-child(2n) .triangle:nth-last-child(2):after {
+  background-position-x: 102%;    
+}
+
+.shortslice:nth-child(2n) .triangle:nth-child(3):after, .shortslice:nth-child(2n) .triangle:nth-last-child(3):after, .shortslice:nth-child(2n) .triangle:nth-child(4):after, .shortslice:nth-child(2n) .triangle:nth-last-child(4):after {
+  background-position-x: 102%;    
+}
+
+.shortslice:nth-child(2n) .triangle:nth-child(5):after, .shortslice:nth-child(2n) .triangle:nth-last-child(5):after, .shortslice:nth-child(2n) .triangle:nth-child(6):after, .shortslice:nth-child(2n) .triangle:nth-last-child(6):after {
+  background-position-x: 102%;    
+}
+
+.fullslice:nth-child(1) {
+  --turnY: 0;
+}
+
+  .fullslice:nth-child(2) {
+  --turnY: 1;
+}
+
+  .fullslice:nth-child(3) {
+  --turnY: 2;
+}
+
+  .fullslice:nth-child(4) {
+  --turnY: 3;
+}
+
+  .fullslice:nth-child(5) {
+  --turnY: 4;
+}
+
+  .fullslice:nth-child(6) {
+  --turnY: 5;
+}
+
+  .fullslice:nth-child(7) {
+  --turnY: 6;
+}
+
+  .fullslice:nth-child(8) {
+  --turnY: 7;
+}
+
+  .fullslice:nth-child(9) {
+  --turnY: 8;
+}
+
+  .fullslice:nth-child(10) {
+  --turnY: 9;
+}
+
+  .fullslice:nth-child(11) {
+  --turnY: 10;
+}
+
+  .fullslice:nth-child(12) {
+  --turnY: 11;
+}
+
+  .fullslice:nth-child(13) {
+  --turnY: 12;
+}
+
+  .fullslice:nth-child(14) {
+  --turnY: 13;
+}
+
+  .fullslice:nth-child(15) {
+  --turnY: 14;
+}
+
+  .fullslice:nth-child(16) {
+  --turnY: 15;
+}
+
+  .fullslice:nth-child(17) {
+  --turnY: 16;
+}
+
+  .fullslice:nth-child(18) {
+  --turnY: 17;
+}
+
+  .fullslice:nth-child(19) {
+  --turnY: 18;
+}
+
+  .fullslice:nth-child(20) {
+  --turnY: 19;
+}
+
+  .fullslice:nth-child(21) {
+  --turnY: 20;
+}
+
+  .fullslice:nth-child(22) {
+  --turnY: 21;
+}
+
+  .fullslice:nth-child(23) {
+  --turnY: 22;
+}
+
+  .fullslice:nth-child(24) {
+  --turnY: 23;
+}
+
+  
+.shortslice:nth-child(25) {
+  --turnY: 0.5;
+}
+
+  .shortslice:nth-child(26) {
+  --turnY: 1.5;
+}
+
+  .shortslice:nth-child(27) {
+  --turnY: 2.5;
+}
+
+  .shortslice:nth-child(28) {
+  --turnY: 3.5;
+}
+
+  .shortslice:nth-child(29) {
+  --turnY: 4.5;
+}
+
+  .shortslice:nth-child(30) {
+  --turnY: 5.5;
+}
+
+  .shortslice:nth-child(31) {
+  --turnY: 6.5;
+}
+
+  .shortslice:nth-child(32) {
+  --turnY: 7.5;
+}
+
+  .shortslice:nth-child(33) {
+  --turnY: 8.5;
+}
+
+  .shortslice:nth-child(34) {
+  --turnY: 9.5;
+}
+
+  .shortslice:nth-child(35) {
+  --turnY: 10.5;
+}
+
+  .shortslice:nth-child(36) {
+  --turnY: 11.5;
+}
+
+  .shortslice:nth-child(37) {
+  --turnY: 12.5;
+}
+
+  .shortslice:nth-child(38) {
+  --turnY: 13.5;
+}
+
+  .shortslice:nth-child(39) {
+  --turnY: 14.5;
+}
+
+  .shortslice:nth-child(40) {
+  --turnY: 15.5;
+}
+
+  .shortslice:nth-child(41) {
+  --turnY: 16.5;
+}
+
+  .shortslice:nth-child(42) {
+  --turnY: 17.5;
+}
+
+  .shortslice:nth-child(43) {
+  --turnY: 18.5;
+}
+
+  .shortslice:nth-child(44) {
+  --turnY: 19.5;
+}
+
+  .shortslice:nth-child(45) {
+  --turnY: 20.5;
+}
+
+  .shortslice:nth-child(46) {
+  --turnY: 21.5;
+}
+
+  .shortslice:nth-child(47) {
+  --turnY: 22.5;
+}
+
+  .shortslice:nth-child(48) {
+  --turnY: 23.5;
+}
+
+  
+.fullslice .triangle:nth-child(1) {
+  --nth: 1;
+  transform: translateZ(var(--pushZ)) rotateX(262.43602897198deg);
+}
+
+
+.fullslice .triangle:nth-child(2) {
+  --nth: 2;
+  transform: translateZ(var(--pushZ)) rotateX(67.684529758279deg);
+}
+
+
+.fullslice .triangle:nth-child(3) {
+  --nth: 3;
+  transform: translateZ(var(--pushZ)) rotateX(231.67665314338deg);
+}
+
+
+.fullslice .triangle:nth-child(4) {
+  --nth: 4;
+  transform: translateZ(var(--pushZ)) rotateX(38.538585772638deg);
+}
+
+
+.fullslice .triangle:nth-child(5) {
+  --nth: 5;
+  transform: translateZ(var(--pushZ)) rotateX(200.80430620777deg);
+}
+
+
+.fullslice .triangle:nth-child(6) {
+  --nth: 6;
+  transform: translateZ(var(--pushZ)) rotateX(9.2902029885767deg);
+}
+
+
+.fullslice .triangle:nth-child(7) {
+  --nth: 7;
+  transform: translateZ(var(--pushZ)) rotateX(-189.29020298858deg);
+}
+
+
+.fullslice .triangle:nth-child(8) {
+  --nth: 8;
+  transform: translateZ(var(--pushZ)) rotateX(-20.804306207771deg);
+}
+
+
+.fullslice .triangle:nth-child(9) {
+  --nth: 9;
+  transform: translateZ(var(--pushZ)) rotateX(-218.53858577264deg);
+}
+
+
+.fullslice .triangle:nth-child(10) {
+  --nth: 10;
+  transform: translateZ(var(--pushZ)) rotateX(-51.676653143384deg);
+}
+
+
+.fullslice .triangle:nth-child(11) {
+  --nth: 11;
+  transform: translateZ(var(--pushZ)) rotateX(-247.68452975828deg);
+}
+
+
+.fullslice .triangle:nth-child(12) {
+  --nth: 12;
+  transform: translateZ(var(--pushZ)) rotateX(-82.436028971985deg);
+}
+
+
+
+
+.shortslice .triangle:nth-child(1) {
+  --nth: 2;
+  transform: translateZ(var(--pushZ)) rotateX(247.135203482deg);
+}
+
+
+.shortslice .triangle:nth-child(2) {
+  --nth: 3;
+  transform: translateZ(var(--pushZ)) rotateX(53.064177501585deg);
+}
+
+
+.shortslice .triangle:nth-child(3) {
+  --nth: 4;
+  transform: translateZ(var(--pushZ)) rotateX(216.18746056516deg);
+}
+
+
+.shortslice .triangle:nth-child(4) {
+  --nth: 5;
+  transform: translateZ(var(--pushZ)) rotateX(23.985864417409deg);
+}
+
+
+.shortslice .triangle:nth-child(5) {
+  --nth: 6;
+  transform: translateZ(var(--pushZ)) rotateX(185.63104767406deg);
+}
+
+
+.shortslice .triangle:nth-child(6) {
+  --nth: 7;
+  transform: translateZ(var(--pushZ)) rotateX(-5.6310476740552deg);
+}
+
+
+.shortslice .triangle:nth-child(7) {
+  --nth: 8;
+  transform: translateZ(var(--pushZ)) rotateX(-203.98586441741deg);
+}
+
+
+.shortslice .triangle:nth-child(8) {
+  --nth: 9;
+  transform: translateZ(var(--pushZ)) rotateX(-36.187460565162deg);
+}
+
+
+.shortslice .triangle:nth-child(9) {
+  --nth: 10;
+  transform: translateZ(var(--pushZ)) rotateX(-233.06417750159deg);
+}
+
+
+.shortslice .triangle:nth-child(10) {
+  --nth: 11;
+  transform: translateZ(var(--pushZ)) rotateX(-67.135203481999deg);
+}
+
+
+.shortslice .triangle:nth-child(11) {
+  --nth: 12;
+  transform: translateZ(var(--pushZ)) rotateX(-262.5deg);
+}
+
+.fullslice .triangle:nth-child(1), .triangle:nth-child(2) {
+  top: 1.7037086855466em;
+  width: 3.3782664431262em;
+  --pushZ: 12.830240614629em;
+}
+
+.fullslice .triangle:nth-child(3), .triangle:nth-child(4) {
+  top: 14.644660940673em;
+  width: 9.2295955641257em;
+  --pushZ: 35.052869232499em;
+}
+
+.fullslice .triangle:nth-child(5), .triangle:nth-child(6) {
+  top: 37.059047744874em;
+  width: 12.607862007252em;
+  --pushZ: 47.883109847127em;
+}
+
+.fullslice .triangle:nth-child(7), .triangle:nth-child(8) {
+  top: 62.940952255126em;
+  width: 12.607862007252em;
+  --pushZ: 47.883109847127em;
+}
+
+
+.fullslice .triangle:nth-child(9), .triangle:nth-child(10) {
+  top: 85.355339059327em;
+  width: 9.2295955641257em;
+  --pushZ: 35.052869232499em;
+}
+
+
+.fullslice .triangle:nth-child(11), .triangle:nth-child(12) {
+  top: 98.296291314453em;
+  width: 3.3782664431262em;
+  --pushZ: 12.830240614629em;
+}
+
+
+
+.shortslice .triangle:nth-child(1), .shortslice .triangle:nth-child(2) {
+  top: 6.6987298107781em;
+  width: 6.5263096110026em;
+  --pushZ: 24.786121534345em;
+}
+
+
+.shortslice .triangle:nth-child(3), .shortslice .triangle:nth-child(4) {
+  top: 25em;
+  width: 11.303899832182em;
+  --pushZ: 42.930821820063em;
+}
+
+
+.shortslice .triangle:nth-child(5), .shortslice .triangle:nth-child(6) {
+  top: 50em;
+  width: 13.052619222005em;
+  --pushZ: 49.572243068691em;
+}
+
+
+.shortslice .triangle:nth-child(7), .shortslice .triangle:nth-child(8) {
+  top: 75em;
+  width: 11.303899832182em;
+  --pushZ: 42.930821820063em;
+}
+
+
+.shortslice .triangle:nth-child(9), .shortslice .triangle:nth-child(10) {
+  top: 93.301270189222em;
+  width: 6.5263096110026em;
+  --pushZ: 24.786121534345em;
+}
+
+
+
+
+
+.triangle:nth-child(1), .triangle:nth-last-child(1) {
+  height: 12.942862802119%;
+}
+
+
+.triangle:nth-child(2), .triangle:nth-last-child(2) {
+  height: 13.154971666231%;
+}
+
+
+.triangle:nth-child(3), .triangle:nth-last-child(3) {
+  height: 12.813976795935%;
+}
+
+
+.triangle:nth-child(4), .triangle:nth-last-child(4) {
+  height: 13.238926141364%;
+}
+
+
+.triangle:nth-child(5), .triangle:nth-last-child(5) {
+  height: 12.900150664388%;
+}
+
+
+.triangle:nth-child(6), .triangle:nth-last-child(6) {
+  height: 13.112950437975%;
+}
+
+
+.fullslice:nth-child(24) .triangle:nth-child(5), .fullslice:nth-child(1) .triangle:nth-child(5), .shortslice:nth-child(48) .triangle:nth-child(3), .shortslice:nth-child(48) .triangle:nth-child(4),
+.fullslice:nth-child(4) .triangle:nth-child(5), .fullslice:nth-child(5) .triangle:nth-child(5), .shortslice:nth-child(28) .triangle:nth-child(3), .shortslice:nth-child(28) .triangle:nth-child(4),
+.fullslice:nth-child(23) .triangle:nth-child(7), .fullslice:nth-child(24) .triangle:nth-child(7), .fullslice:nth-child(1) .triangle:nth-child(7), .fullslice:nth-child(2) .triangle:nth-child(7), .fullslice:nth-child(3) .triangle:nth-child(7), .fullslice:nth-child(4) .triangle:nth-child(7), .fullslice:nth-child(5) .triangle:nth-child(7), .fullslice:nth-child(6) .triangle:nth-child(7),
+.fullslice:nth-child(23) .triangle:nth-child(8), .fullslice:nth-child(24) .triangle:nth-child(8), .fullslice:nth-child(1) .triangle:nth-child(8), .fullslice:nth-child(2) .triangle:nth-child(8), .fullslice:nth-child(3) .triangle:nth-child(8), .fullslice:nth-child(4) .triangle:nth-child(8), .fullslice:nth-child(5) .triangle:nth-child(8), .fullslice:nth-child(6) .triangle:nth-child(8),
+.shortslice:nth-child(47) .triangle:nth-child(7), .shortslice:nth-child(47) .triangle:nth-child(8), .shortslice:nth-child(48) .triangle:nth-child(7), .shortslice:nth-child(48) .triangle:nth-child(8), .shortslice:nth-child(25) .triangle:nth-child(7), .shortslice:nth-child(25) .triangle:nth-child(8), .shortslice:nth-child(26) .triangle:nth-child(7), .shortslice:nth-child(26) .triangle:nth-child(8),
+.shortslice:nth-child(27) .triangle:nth-child(7), .shortslice:nth-child(27) .triangle:nth-child(8), .shortslice:nth-child(28) .triangle:nth-child(7), .shortslice:nth-child(28) .triangle:nth-child(8), .shortslice:nth-child(29) .triangle:nth-child(7), .shortslice:nth-child(29) .triangle:nth-child(8),
+.shortslice:nth-child(34) .triangle:nth-child(4), .shortslice:nth-child(35) .triangle:nth-child(5), .shortslice:nth-child(35) .triangle:nth-child(6), .shortslice:nth-child(36) .triangle:nth-child(4), .shortslice:nth-child(38) .triangle:nth-child(4), .shortslice:nth-child(39) .triangle:nth-child(5), .shortslice:nth-child(39) .triangle:nth-child(6), .shortslice:nth-child(40) .triangle:nth-child(4),
+.fullslice:nth-child(11) .triangle:nth-child(5), .fullslice:nth-child(11) .triangle:nth-child(6), .fullslice:nth-child(12) .triangle:nth-child(5), .fullslice:nth-child(12) .triangle:nth-child(6), .fullslice:nth-child(13) .triangle:nth-child(7), .fullslice:nth-child(14) .triangle:nth-child(7), .fullslice:nth-child(15) .triangle:nth-child(5), .fullslice:nth-child(15) .triangle:nth-child(6), .fullslice:nth-child(16) .triangle:nth-child(5), .fullslice:nth-child(16) .triangle:nth-child(6),
+.fullslice:nth-child(10) .triangle:nth-child(9), .fullslice:nth-child(11) .triangle:nth-child(9), .fullslice:nth-child(12) .triangle:nth-child(9), .fullslice:nth-child(13) .triangle:nth-child(9), .fullslice:nth-child(14) .triangle:nth-child(9), .fullslice:nth-child(15) .triangle:nth-child(9), .fullslice:nth-child(16) .triangle:nth-child(9), .fullslice:nth-child(17) .triangle:nth-child(9)  {
+  background: black;
+  display: none;
+}
+
+.triangle .left, .triangle .right, .triangle .top {
+  position: absolute;
+  height: 40%;
+  background: #fa0;
+  transform-origin: 0 0;
+}
+
+.shortslice .triangle:nth-child(3) .top {
+  width: 102%;
+  left: 100%;
+  transform: rotate(180deg) rotateX(99deg);;
+}
+
+.shortslice .triangle:nth-child(4) .left {
+  width: 123%;
+  left: 100%;
+  transform: rotate(114deg) rotateX(-99deg);;
+}
+
+.shortslice .triangle:nth-child(4) .right {
+  width: 126%;
+  transform: rotate(67deg) rotateX(-98deg);
+  top: -2%;
+}
+
+.shortslice .triangle:nth-child(5) .left {
+  width: 110%;
+  left: 100%;
+  transform: rotate(118deg) rotateX(90deg);
+}
+
+.shortslice .triangle:nth-child(5) .right {
+  width: 108%;
+  transform: rotate(63deg) rotateX(90deg);
+}
+
+.shortslice .triangle:nth-child(6) .left {
+  width: 108%;
+  transform: rotate(64deg) rotateX(-90deg);
+}
+
+.shortslice .triangle:nth-child(6) .right {
+  width: 108%;
+  left: 100%;
+  transform: rotate(117deg) rotateX(-90deg);
+}
+
+.shortslice .triangle:nth-child(7) .left {
+  width: 118%;
+  transform: rotate(114deg) rotateX(90deg);
+  left: 100%;
+}
+
+.shortslice .triangle:nth-child(7) .right {
+  width: 121%;
+  transform: rotate(68deg) rotateX(90deg);
+}
+
+.shortslice .triangle:nth-child(8) .left {
+  width: 127%;
+  transform: rotate(107deg) rotateX(-110deg) rotateZ(5deg);
+  top: -2%;
+}
+
+.shortslice .triangle:nth-child(8) .right {
+  width: 128%;
+  transform: rotate(66deg) rotateX(-89deg);
+  top: -2%;
+}
+
+.shortslice .triangle:nth-child(8) .top {
+  width: 75%;
+  transform: rotate(180deg) rotateX(-90deg) rotateZ(3deg);
+  top: 100%;
+  left: 52%;
+}
+
+.fullslice .triangle:nth-child(4) .left {
+  width: 158%;
+  transform: rotate(109deg) rotateX(-99deg);
+  left: 100%;
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(4) .right {
+  width: 146%;
+  transform: rotate(67deg) rotateX(-90deg);
+  left: 0%;
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(5) .left {
+  width: 110%;
+  transform: rotate(115deg) rotateX(90deg);
+  left: 100%;
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(5) .right {
+  width: 113%;
+  transform: rotate(63deg) rotateX(90deg);
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(7) .left {
+  width: 119%;
+  transform: rotate(115deg) rotateX(90deg);
+  left: 100%;
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(7) .right {
+  width: 119%;
+  transform: rotate(65deg) rotateX(90deg);
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(9) .left {
+  width: 159%;
+  transform: rotate(130deg) rotateX(90deg) rotateZ(12deg);
+  left: 100%;
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(10) .left {
+  width: 145%;
+  transform: rotate(-110deg) rotateX(-94deg) rotateZ(12deg);
+  left: 100%;
+  top: -2%;
+}
+
+.fullslice .triangle:nth-child(10) .right {
+  width: 145%;
+  transform: rotate(-69deg) rotateX(-90deg) rotateZ(13deg);
+  left: 2%;
+  top: -2%;
+}
+
+/* @media (max-width: 650px),
+@media (orientation: portrait) {
+
+*:root {
+  font-size: 2.75vw;
+} */

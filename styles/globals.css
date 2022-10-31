@@ -7,8 +7,10 @@
 @import 'Faq.css';
 @import 'Footer.css';
 @import 'Prizepool.css';
+@import 'Pumpkin.css';
 @import url(https://allfont.net/allfont.css?fonts=agency-fb);
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+/* @import '~react-toastify/dist/ReactToastify.min.css'; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
