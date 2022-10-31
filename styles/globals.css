@@ -2,6 +2,7 @@
 @import 'Navbar.css';
 @import 'Hero.css';
 @import 'HeroUpdate.css';
+@import 'Loading.css';
 @import 'AboutUs.css';
 @import 'Faq.css';
 @import 'Footer.css';
@@ -11,6 +12,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+  font-family: "Agency FB";
+  src: url("/font/agency-fb.ttf");
+}
 
 html,
 body {
