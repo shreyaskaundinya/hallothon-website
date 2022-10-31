@@ -103,7 +103,21 @@ function RegistrationForm() {
         },
         [membersDetails]
     );
-    const validateData = useCallback((teamDetails, memberDetails) => {
+    const validateData = useCallback(async (teamDetails, memberDetails) => {
+        const { data, error } = await supabase
+            .from('Team')
+            .select('team_name')
+        if(error){
+            alert('Server Error! Please try again later');
+        }
+        else{
+            let teamNames = data.map((x) => x.team_name)
+            // console.log(teamNames.includes(teamDetails.team_name));
+            if((teamNames.includes(teamDetails.team_name)))
+            {
+                alert('Team Name already exists');
+                return false;
+            }
         if (
             teamDetails.team_name === '' ||
             teamDetails.problem === '' ||
@@ -114,8 +128,8 @@ function RegistrationForm() {
             return false;
         }
 
-        if (memberDetails.length === 0) {
-            alert('Please add atleast one member');
+        if (memberDetails.length < 3 || memberDetails.length > 4) {
+            alert('Team should have atleast 3 and atmost 4 members');
             return false;
         }
 
@@ -160,6 +174,7 @@ function RegistrationForm() {
             }
         }
         registerTeam(teamDetails, memberDetails);
+    }
     });
 
     const registerTeam = useCallback(async (teamDetails, memberDetails) => {
@@ -167,6 +182,7 @@ function RegistrationForm() {
             .from('Team')
             .insert([teamDetails]);
         if (error) {
+            alert('Server Error! Please try again later');
         } else {
             let team = await supabase
                 .from('Team')
