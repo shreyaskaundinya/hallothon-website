@@ -120,7 +120,7 @@ function RegistrationForm() {
             }
         if (
             teamDetails.team_name === '' ||
-            teamDetails.problem === '' ||
+            // teamDetails.problem === '' ||
             teamDetails.solution === '' ||
             teamDetails.domain === ''
         ) {
@@ -237,7 +237,7 @@ function RegistrationForm() {
                     />
                 </label>
 
-                <label htmlFor='problem'>
+                {/* <label htmlFor='problem'>
                     Problem
                     <textarea
                         required
@@ -246,10 +246,10 @@ function RegistrationForm() {
                         onChange={updateTeamDetails}
                         value={teamDetails.problem}
                     />
-                </label>
+                </label> */}
 
                 <label htmlFor='solution'>
-                    Solution
+                    How can you use Open Source to solve everyday problems? Explain your problem statement and solution in briefly.
                     <textarea
                         required
                         type='text'
