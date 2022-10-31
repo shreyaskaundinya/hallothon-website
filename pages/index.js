@@ -3,7 +3,7 @@ import AboutUs from '../src/components/AboutUs';
 import Faq from '../src/components/Faq';
 import Footer from '../src/components/Footer';
 import Game from '../src/components/game/Game';
-import Hero from '../src/components/Hero';
+import HeroUpdate from '../src/components/HeroUpdate';
 import Navbar from '../src/components/Navbar';
 import Prizepool from '../src/components/Prizepool';
 import Sponsor from '../src/components/Sponsor';
@@ -17,7 +17,7 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Navbar />
-            <Hero />
+            <HeroUpdate />
             <Prizepool />
             <Sponsor />
             <AboutUs />

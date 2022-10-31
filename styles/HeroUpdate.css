@@ -1,0 +1,247 @@
+.stroke-red {
+    -webkit-text-stroke: 3px #ac1b1d;
+    -webkit-text-fill-color: #000000;
+}
+
+.stroke-white {
+    -webkit-text-stroke: 3px #fff;
+    -webkit-text-fill-color: #000000;
+}
+
+.hero {
+    position: relative;
+    color: white;
+    font-family: 'Agency FB';
+    padding: 2rem;
+}
+
+.grid * {
+    border: 1px solid;
+}
+
+.herogrid {
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOP ------------------------------------------- */
+.top-bar {
+    /* background: red; */
+    font-size: 12vw;
+    display: flex;
+    align-items: flex-end;
+    font-weight: bolder;
+    letter-spacing: 1.2rem;
+    padding-left: 2rem;
+}
+
+.top-bar span {
+    line-height: 22vh;
+}
+
+/* MID ------------------------------------------- */
+
+.year-bar {
+    /* background: blue; */
+    text-align: right;
+    font-size: 2vw;
+    padding-right: 10vw;
+    letter-spacing: 1.4rem;
+}
+
+.mid-bar {
+    display: flex;
+}
+
+.hallo-mid {
+    /* background: lightgray; */
+    position: relative;
+    font-size: 6vw;
+    padding-left: 10vw;
+    text-align: left;
+    flex: 1;
+    letter-spacing: 1.4rem;
+    font-weight: bold;
+}
+
+.thon-mid {
+    /* background: green; */
+    position: relative;
+    font-size: 6vw;
+    text-align: right;
+    padding-right: 10vw;
+    flex: 1;
+    letter-spacing: 1.4rem;
+    font-weight: bold;
+}
+
+/* END ------------------------------------------- */
+
+.end-bar {
+    display: flex;
+}
+
+.register {
+    /* background: yellow; */
+    display: flex;
+    align-items: center;
+    padding-left: 10vw;
+    flex: 1;
+}
+
+.thon-end {
+    flex: 1;
+    /* background: lightblue; */
+    font-size: 12vw;
+    text-align: right;
+    letter-spacing: 1.2rem;
+    font-weight: bolder;
+    padding-right: 2rem;
+    line-height: 22vh;
+}
+
+.thon-end span {
+}
+
+/* ------------------------------------ */
+.left-box {
+    position: absolute;
+    left: -2rem;
+    top: calc(50% - 0.75vh);
+    width: 3rem;
+    height: 1.5vh;
+    background: white;
+}
+
+.right-box {
+    position: absolute;
+    right: -2rem;
+    top: calc(50% - 0.75vh);
+    width: 3rem;
+    height: 1.5vh;
+    background: white;
+}
+
+.vertical-text {
+    position: absolute;
+    font-size: 1.2vw;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.9vw;
+}
+
+.left-vertical-hallothon {
+    left: 2rem;
+    top: 0rem;
+}
+
+.right-vertical-hallothon {
+    right: 2rem;
+    @apply -top-28 lg:-top-32 xl:-top-56;
+}
+
+.skull {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    /* background: rgba(100, 100, 100, 0.3); */
+}
+
+.glitch {
+    position: relative;
+    width: 23%;
+}
+
+/* ---------------------------------- */
+
+.mob__grid {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-areas:
+        'header header'
+        'hallo hallo'
+        'blank blank'
+        'blank blank'
+        'blank blank'
+        'blank blank'
+        'thon thon'
+        'register register'
+        'timer timer';
+    grid-template-rows: 0.75fr 0.5fr 1fr 1fr 1fr 1fr 0.5fr 1fr 0.6fr 1fr;
+    grid-template-columns: repeat (2, 1fr);
+    position: relative;
+}
+
+.mob__header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 13vw;
+    font-weight: bold;
+}
+
+.mob__header p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1.2vw;
+}
+
+.mob__year {
+    align-self: flex-end;
+    font-size: 1.2rem;
+    letter-spacing: 1vw;
+}
+
+.mob__hallo {
+    grid-area: hallo;
+    font-size: 10vw;
+    padding-left: 6.5vw;
+    letter-spacing: 1.4vw;
+    @apply font-poppins font-extrabold stroke-white opacity-60;
+}
+
+.mob__thon {
+    grid-area: thon;
+    font-size: 10vw;
+    text-align: right;
+    letter-spacing: 1.4vw;
+    padding-right: 6.5vw;
+    @apply font-poppins font-extrabold stroke-white opacity-60;
+}
+
+.mob__register {
+    grid-area: register;
+    display: grid;
+    place-items: center;
+    @apply p-4;
+}
+
+.mob__skull {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 15vh;
+    display: grid;
+    place-items: center;
+}
+
+.mob__skull svg {
+    width: 70%;
+}
+
+.mob__timer {
+    grid-area: timer;
+}
+
+.mob__leftbox {
+    @apply absolute top-[calc(50%-2rem)] left-0 w-[2rem] h-[0.5rem] bg-black;
+}

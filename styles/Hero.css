@@ -41,9 +41,6 @@
     border-right: none;
 }
 
-.timer-container div span {
-    @apply text-step-0 sm:text-step-3 xl:text-step-5;
-}
 
 .register-button-container {
     padding-left: 10vw;

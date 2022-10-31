@@ -13,6 +13,11 @@ export default function Document() {
                 <link
                     href='https://fonts.googleapis.com/css2?family=Inconsolata&family=Poppins&display=swap'
                     rel='stylesheet'></link>
+                <link
+                    href='https://allfont.net/allfont.css?fonts=agency-fb'
+                    rel='stylesheet'
+                    type='text/css'
+                />
             </Head>
             <body>
                 <Main />

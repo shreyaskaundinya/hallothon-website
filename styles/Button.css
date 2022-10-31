@@ -4,7 +4,6 @@
 
 .register-button {
     position: relative;
-    padding: 0.5rem 3rem;
     color: #ffffff;
     border-radius: 6px;
     font-weight: 400;
@@ -12,6 +11,16 @@
     background-color: transparent;
     transition: all 0.3s ease-out;
     height: min-content;
+    z-index: 1000;
+}
+
+.register-button-sm {
+    padding: 0.78vh 3vw;
+    width: 100%;
+}
+
+.register-button-lg {
+    padding: 2vh 6vw;
 }
 
 .register-button::before {
