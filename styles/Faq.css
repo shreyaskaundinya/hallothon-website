@@ -1,18 +1,18 @@
 .faq {
-    @apply flex flex-row my-12;
+    @apply flex flex-row mb-4 -mt-16 ;
 }
 
 .faq__quest {
-    @apply text-step-4 border-b border-hallored p-4;
+    @apply text-step-2 border-b border-hallored p-4 z-20;
 }
 
 .faq__quest:hover {
-    background-color: #212121;
+    background-color: #121212;
     @apply transition-all duration-300 ease-in-out;
 }
 
 .faq__container {
-    @apply flex flex-col gap-4 max-w-7xl mx-auto;
+    @apply flex flex-col gap-0 max-w-6xl mx-auto;
 }
 
 .faq__arrow {
@@ -21,5 +21,5 @@
 }
 
 .faq__ans {
-    @apply py-2 px-4 text-step-1 sm:text-xl;
+    @apply py-5 px-10 sm:text-xl;
 }

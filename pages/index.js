@@ -19,10 +19,9 @@ export default function Home() {
             <Navbar />
             <HeroUpdate />
             <Prizepool />
-            <Sponsor />
+            {/* <Sponsor /> */}
             <AboutUs />
             <Faq />
-            <Game />
             <Footer className='absolute b-0' />
         </div>
     );

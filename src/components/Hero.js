@@ -30,7 +30,7 @@ function Hero() {
                             <span>THON-</span>
                         </p>
                         <div className='flex items-center register-button-container'>
-                            <div className='flex flex-col gap-2'>
+                            <div className='flex flex-col gap-2 -z-30'>
                                 <RegisterButton />
                             </div>
                             <p className='w-full main-title text-right stroke-text leading-tight pr-20'>
@@ -68,7 +68,7 @@ function Hero() {
                 </div>
 
                 <div className='mt-auto'>
-                    <div className='z-30 mb-4 flex items-center justify-center'>
+                    <div className='mb-4 flex items-center justify-center -z-10'>
                         <RegisterButton/>
                     </div>
                     <div className='font-agency'>
