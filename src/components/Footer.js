@@ -16,10 +16,7 @@ function Footer() {
                 </div>
                 {/* <h1>HALLOTHON</h1> */}
                 <div className='flex justify-start'>
-                    <Image src='/assets/instagram.svg' width={65} height={65} />
-                    <Image src='/assets/instagram.svg' width={65} height={65} />
-                    <Image src='/assets/instagram.svg' width={65} height={65} />
-                    <Image src='/assets/instagram.svg' width={65} height={65} />
+                    
                 </div>
                 <h3 className='text-xl'>PES UNIVERSITY</h3>
                 <p className='text-lg font-agency'>
