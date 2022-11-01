@@ -14,7 +14,7 @@ function AboutUs() {
                 <h1 className='text-6xl md:text-step-8 my-4 font-bold text-center'>
                     About Us
                 </h1>
-                <p className='text-step-1 sm:text-step-1 font-poppins'>
+                <p className='text-step-1 sm:text-step-2 '>
                     Hallothon is an annual halloween themed hackathon that aims
                     to bring together students to create innovative solutions to
                     real-world problems. It is organized by the Department of

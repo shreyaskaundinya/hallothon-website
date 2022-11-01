@@ -278,7 +278,19 @@ function RegistrationForm() {
                     </button>
                 </div>
             </div>
-            <form className='flex flex-col gap-4'>
+            <div className='border-2 rounded-lg pb-4 '>
+                <div className='text-step-3 font-bold  text-center text-red-600'>How to Register ?</div>
+                <div className='px-10 py-3 text-step-1'>
+                    <p>- To Register Fill out details of all the team members.</p>
+                    <p>- A team can consist of 3-4 members.</p>
+                    <p>- Click on Save Changes to save the form as a draft.</p>
+                    <p>- After filling out the form recheck all the details as you won't be able to edit it later. After you are done, click on the Submit button, and that's it , your team is registered for Hallothon 2022!</p>
+                    <p>- We will be selecting teams on the basis of the solution given by you ,for the problem statements given below. A  totally diffrent problem statement might be given to the selected teams by us, prior to the event. </p>
+                    
+
+                </div>
+            </div>
+            <form className='flex flex-col gap-4 pt-5'>
                 <label htmlFor='team_name'>
                     Team Name
                     <input
@@ -301,8 +313,12 @@ function RegistrationForm() {
                 </label> */}
 
                 <label htmlFor='solution'>
-                    How can you use Open Source to solve everyday problems?
-                    Explain your problem statement and solution in briefly.
+                    <span>Problem Statements , Choose any one:</span>
+                    <span>1.</span>
+                    <span>2.</span>
+                    <span>3.</span>
+                    <span>4.</span>
+                    Explain your solution for the problem statement in detail below, please mention the problem statement number.
                     <textarea
                         required
                         type='text'

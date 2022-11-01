@@ -13,7 +13,7 @@ function Hero() {
         <div className='w-full h-[calc(100vh-4rem)]'>
             <div className='hidden md:block h-full'>
                 <div className='absolute top-0 left-0 right-0 bottom-0 grid place-items-center z-[1]'>
-                    <div className='sm:w-[20%] md:w-[22%] lg:w-[25.5%] xl:w-[27%]'>
+                    <div className='sm:w-[20%] md:w-[20%] lg:w-[20%] xl:w-[20%]'>
                         <Skull />
                     </div>
                 </div>
