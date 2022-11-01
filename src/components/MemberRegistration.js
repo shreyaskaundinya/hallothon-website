@@ -93,7 +93,7 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         </label>
                     )}
                 </div>
-                <div className='flex gap-2'>
+                <div className='sm:flex gap-2'>
                     <label htmlFor='campus' className='flex-1'>
                         Campus
                         <select
@@ -141,7 +141,7 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         </select>
                     </label>
                 </div>
-                <div className='flex gap-2'>
+                <div className='sm:flex gap-2'>
                     <label htmlFor='phone' className='flex-1'>
                         Phone
                         <input
