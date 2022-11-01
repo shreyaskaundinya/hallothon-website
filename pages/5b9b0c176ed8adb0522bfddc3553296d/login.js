@@ -13,7 +13,7 @@ function AdminLogin() {
                 if (error) {
                     console.log(error);
                 } else {
-                    router.push('/admin');
+                    router.push('/5b9b0c176ed8adb0522bfddc3553296d');
                 }
             })
             .catch(() => {});
@@ -32,7 +32,7 @@ function AdminLogin() {
             if (!true) {
                 alert('User signedin is not an admin');
             } else {
-                router.push('/admin');
+                router.push('/5b9b0c176ed8adb0522bfddc3553296d');
             }
         }
         try {

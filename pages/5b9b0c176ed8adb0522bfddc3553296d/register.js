@@ -15,7 +15,7 @@ function AdminRegister() {
                     .insert([{ user_id: res.data.user.id, is_admin: true }])
                     .then((data) => {
                         alert('User Added!');
-                        router.push('/admin');
+                        router.push('/5b9b0c176ed8adb0522bfddc3553296d/login');
                     })
                     .catch((err) => {});
             })

@@ -10,7 +10,7 @@ function Admin() {
     useEffect(() => {
         supabase.auth.getSession().then(({ data, error }) => {
             if (error || data.session === null) {
-                router.push('/admin/login');
+                router.push('/5b9b0c176ed8adb0522bfddc3553296d/login');
             } else {
                 supabase.auth
                     .getUser(data.session.access_token)
@@ -35,7 +35,7 @@ function Admin() {
         if (err) {
             alert('Error logging out.');
         } else {
-            router.push('/admin/login');
+            router.push('/5b9b0c176ed8adb0522bfddc3553296d');
         }
     };
 
