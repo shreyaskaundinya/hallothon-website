@@ -285,8 +285,7 @@ function RegistrationForm() {
                     <p>- A team can consist of 3-4 members.</p>
                     <p>- Click on Save Changes to save the form as a draft.</p>
                     <p>- After filling out the form recheck all the details as you won't be able to edit it later. After you are done, click on the Submit button, and that's it , your team is registered for Hallothon 2022!</p>
-                    <p>- We will be selecting teams on the basis of the solution given by you ,for the problem statements given below. A  totally diffrent problem statement might be given to the selected teams by us, prior to the event. </p>
-                    
+                    <p className='underline italic '>- We will be selecting teams on the basis of the solution given by you ,for the problem statements given below. A  totally diffrent problem statement might be given to the selected teams by us, prior to the event. </p>
 
                 </div>
             </div>
@@ -314,10 +313,12 @@ function RegistrationForm() {
 
                 <label htmlFor='solution'>
                     <span>Problem Statements , Choose any one:</span>
-                    <span>1.</span>
+                    <span>1. With the introduction of concept of smart cities and smart health care and applications of IoT in various sectors, huge mounts of data will be generated. Long term success of these projects will depend on the underlying data analytics capability. Data transmitted by sensors needs to be continuously processed in real time , creating triggers or alarms in immediate terms and also deriving intelligent insights in the long term. Explain in detail how would you tackle the collection and handling of such huge amount of data in real time taking the example of any iot device of your choice. Also describe the approaches to learn from the data collected by listing out the various analytics techniques used to learn the data and possibly build a model to handle the real time inflow and learning of the data.</span>
+                    <span className='text-center'>------------------------------------------------------</span>
                     <span>2.</span>
                     <span>3.</span>
                     <span>4.</span>
+                    <span>5. Open Source to solve daily problems</span>
                     Explain your solution for the problem statement in detail below, please mention the problem statement number.
                     <textarea
                         required

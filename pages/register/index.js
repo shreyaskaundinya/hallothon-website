@@ -11,7 +11,8 @@ function Registration() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
             <Navbar />
-            <RegistrationForm />
+            <div className='text-5xl text-center py-16'>Regrations Opening at 11:59 PM Today</div>
+            {/* <RegistrationForm /> */}
         </div>
     );
 }
