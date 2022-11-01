@@ -12,11 +12,11 @@ function Navbar() {
     };
 
     const paths = [
-        { path: '/', name: 'Home' },
-        { path: '/register', name: 'Register' },
-        { path: '/#aboutus', name: 'About Us' },
+        { path: '/', name: 'HOME' },
+        { path: '/register', name: 'REGISTER' },
+        { path: '/#aboutus', name: 'ABOUT US' },
         { path: '/#faq', name: 'FAQ' },
-        { path: '/#contact', name: 'Contact' },
+        { path: '/#contact', name: 'CONTACT' },
     ];
 
     return (
