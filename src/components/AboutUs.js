@@ -15,17 +15,15 @@ function AboutUs() {
                     About Us
                 </h1>
                 <p className='text-step-1 sm:text-step-1 font-poppins'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat proident, sunt in culpa qui officia deseruntDuis
-                    aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat proident, sunt in culpa qui officia
-                    deserunt
+                    Hallothon is an annual halloween themed hackathon that aims
+                    to bring together students to create innovative solutions to
+                    real-world problems. It is organized by the Department of
+                    Computer Science & Engineering. Last year, we received 900+
+                    registrations with around 300 participants. This year, we
+                    are back with the second edition of Hallothon -{' '}
+                    <span className='text-red-600'>Hallothon'22</span>,
+                    sponsored by{' '}
+                    <span className='text-orange-600'>Cloudera</span>.
                 </p>
             </div>
             <div className='stripes'>
