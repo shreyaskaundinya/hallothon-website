@@ -229,13 +229,13 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 15vh;
+    bottom: 19vh;
     display: grid;
     place-items: center;
 }
 
 .mob__skull svg {
-    width: 70%;
+    width: 65%;
 }
 
 .mob__timer {
