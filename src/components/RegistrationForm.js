@@ -266,7 +266,7 @@ function RegistrationForm() {
         }
     });
     return (
-        <div className='registration__form max-w-5xl mx-auto my-20 p-2 font-agency'>
+        <div className='registration__form max-w-5xl mx-auto my-20 p-4 md:p-2 font-agency'>
             <div className='flex justify-between items-center border-b-2 border-white mb-16'>
                 <h1 className='text-step-4 font-bold'>Registration Form</h1>
                 <div className='flex flex-row gap-2'>
@@ -323,7 +323,7 @@ function RegistrationForm() {
                     />
                 </label>
 
-                <div className='grid grid-cols-2 gap-2'>
+                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2'>
                     {membersDetails.map((mem, idx) => {
                         return (
                             <MemberRegistration

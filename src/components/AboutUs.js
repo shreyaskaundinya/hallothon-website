@@ -14,7 +14,7 @@ function AboutUs() {
                 <h1 className='text-6xl md:text-step-8 my-4 font-bold text-center'>
                     About Us
                 </h1>
-                <p className='text-step-1 sm:text-step-2 font-poppins'>
+                <p className='text-step-1 sm:text-step-1 font-poppins'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim, quis nostrud exercitation ullamco
