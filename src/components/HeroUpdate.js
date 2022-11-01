@@ -1,8 +1,9 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import Skull from './Skull';
 import Timer from './Timer';
-
 function HeroUpdate() {
+    let router = useRouter();
     return (
         <>
             <div className='hidden sm:block'>
@@ -40,7 +41,7 @@ function HeroUpdate() {
 
                         <div className='end-bar'>
                             <div className='register'>
-                                <button className='register-button register-button-lg'>
+                                <button className='register-button register-button-lg'  onClick={()=>{router.push('/register')}}>
                                     REGISTER
                                 </button>
                             </div>
@@ -100,7 +101,7 @@ function HeroUpdate() {
                     <div class='mob__hallo'>HALLO</div>
                     <div class='mob__thon'>THON</div>
                     <div class='mob__register'>
-                        <button className='register-button register-button-sm'>Register</button>
+                        <button className='register-button register-button-sm' onClick={()=>{router.push('/register')}}>Register</button>
                     </div>
                     <div className='mob__skull'>
                         <Skull />

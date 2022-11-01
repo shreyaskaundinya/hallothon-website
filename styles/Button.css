@@ -12,6 +12,7 @@
     transition: all 0.3s ease-out;
     height: min-content;
     z-index: 1000;
+    pointer-events: all;
 }
 
 .register-button-sm {

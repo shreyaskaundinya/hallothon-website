@@ -10,7 +10,7 @@ min-height: 100vh;
 } */
 
 #scene {
-width: 100vw; /* using rem/em instead of percentages also facilitates scalability across this insane jumble of transforms */
+width: 80vw; /* using rem/em instead of percentages also facilitates scalability across this insane jumble of transforms */
 height: 25rem;
 place-self: center;
 perspective: 100rem;

@@ -1,8 +1,14 @@
 import RegisterButton from './RegisterButton';
 import Skull from './Skull';
 import Timer from './Timer';
+import {useRouter} from 'next/router'
 
 function Hero() {
+    const router = useRouter()
+    const handleRegister = () => {
+        console.log("Register!!"); 
+        // router.push('/register')/
+    }
     return (
         <div className='w-full h-[calc(100vh-4rem)]'>
             <div className='hidden md:block h-full'>
@@ -63,7 +69,7 @@ function Hero() {
 
                 <div className='mt-auto'>
                     <div className='z-30 mb-4 flex items-center justify-center'>
-                        <RegisterButton />
+                        <RegisterButton/>
                     </div>
                     <div className='font-agency'>
                         <Timer />

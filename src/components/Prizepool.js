@@ -152,10 +152,10 @@ function InfoCard(props) {
             <SpiderBorder />
             <div className='absolute top-0 left-0 right-0 bottom-4 grid place-items-center'>
                 <div className='prizepoolbox w-2/3 sm:w-3/4'>
-                    <div className='text-step-3 sm:text-step-4 font-agency font-bold'>
+                    <div className='text-step-3 sm:text-step-2 font-agency font-bold'>
                         {props.heading}
                     </div>
-                    <div className='text-step-1 font-agency'>{props.body}</div>
+                    <div className='text-step-4 font-agency'>{props.body}</div>
                 </div>
             </div>
         </div>
