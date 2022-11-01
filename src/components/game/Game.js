@@ -98,6 +98,14 @@ function Game() {
             setFallSpeed(() => -4500);
             setSpeed(() => 2);
         }
+
+        if (window?.chrome) {
+            console.log('CHROMEEE');
+            // console.log(window);
+            setJumpSpeed(() => -750);
+            setFallSpeed(() => -4500);
+            setSpeed(() => 2);
+        }
     }, []);
 
     // bird jump
