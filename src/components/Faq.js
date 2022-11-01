@@ -6,7 +6,7 @@ function Faq() {
         <div className='max-w-6xl mx-auto my-56' >
             <div className='faq'>
                 <div className='w-screen'>
-                    <h1 className='font-bold text-left md:text-step-8' id='faq'>
+                    <h1 className='font-bold text-left  sm: text-step-9 sm: px-4 md:text-step-8' id='faq'>
                         FAQS
                     </h1>
                 </div>

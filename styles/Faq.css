@@ -1,5 +1,5 @@
 .faq {
-    @apply flex flex-row mb-4 -mt-16 ;
+    @apply flex flex-row mb-4 -mt-16 sm:text-step-3 ;
 }
 
 .faq__quest {
