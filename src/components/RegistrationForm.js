@@ -1,12 +1,14 @@
+import { useRouter } from 'next/router';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import { supabase } from '../../utils/supabaseClient';
 import MemberRegistration from './MemberRegistration';
-import 'react-toastify/dist/ReactToastify.min.css';
-import { toast, ToastContainer } from 'react-toastify';
-import { useRouter } from 'next/router';
+
+let MAX_MEMBERS = 4;
 
 function RegistrationForm() {
-    const router = useRouter()
+    const router = useRouter();
     const [teamDetails, setTeamDetails] = useState({
         team_name: '',
         problem: '',
@@ -37,8 +39,7 @@ function RegistrationForm() {
             saveToLocalStorage();
             submitButton.current.style.backgroundColor = 'black';
             submitButton.current.style.pointerEvents = 'none';
-        }
-        else{
+        } else {
             submitButton.current.style.backgroundColor = '#3f3f46';
             submitButton.current.style.pointerEvents = 'all';
         }
@@ -49,7 +50,7 @@ function RegistrationForm() {
             setMemberDetails(() => JSON.parse(membersData));
         }
 
-        return () => { };
+        return () => {};
     }, [isSubmitting]);
 
     const updateTeamDetails = useCallback(
@@ -117,16 +118,13 @@ function RegistrationForm() {
     );
     const validateData = useCallback(async (teamDetails, memberDetails) => {
         setIsSubmitting(true);
-        const { data, error } = await supabase
-            .from('Team')
-            .select('team_name')
+        const { data, error } = await supabase.from('Team').select('team_name');
         if (error) {
             toast('Server Error', { type: 'error' });
             setIsSubmitting(false);
-        }
-        else {
-            let teamNames = data.map((x) => x.team_name)
-            if ((teamNames.includes(teamDetails.team_name))) {
+        } else {
+            let teamNames = data.map((x) => x.team_name);
+            if (teamNames.includes(teamDetails.team_name)) {
                 toast('Team name already exists', { type: 'error' });
                 setIsSubmitting(false);
                 return false;
@@ -136,13 +134,19 @@ function RegistrationForm() {
                 teamDetails.solution === '' ||
                 teamDetails.domain === ''
             ) {
-                toast('Please fill all the fields in the team details section', { type: 'error', position: 'top-right' });
+                toast(
+                    'Please fill all the fields in the team details section',
+                    { type: 'error', position: 'top-right' }
+                );
                 setIsSubmitting(false);
                 return false;
             }
 
             if (memberDetails.length < 3 || memberDetails.length > 4) {
-                toast('Team should have atleast 3 and atmost 4 members', { type: 'error', position: 'top-right' });
+                toast('Team should have atleast 3 and atmost 4 members', {
+                    type: 'error',
+                    position: 'top-right',
+                });
                 setIsSubmitting(false);
                 return false;
             }
@@ -157,8 +161,12 @@ function RegistrationForm() {
                     member.guardian_name === '' ||
                     member.guardian_phone === ''
                 ) {
-                    toast(`Please fill all the fields in the member details section for member ${i + 1
-                        }`, { type: 'error', position: 'top-right' });
+                    toast(
+                        `Please fill all the fields in the member details section for member ${
+                            i + 1
+                        }`,
+                        { type: 'error', position: 'top-right' }
+                    );
                     setIsSubmitting(false);
                     return false;
                 }
@@ -167,24 +175,38 @@ function RegistrationForm() {
                         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
                     )
                 ) {
-                    toast('Please enter a valid email address', { type: 'error', position: 'top-right' });
+                    toast('Please enter a valid email address', {
+                        type: 'error',
+                        position: 'top-right',
+                    });
                     setIsSubmitting(false);
                     return;
                 }
                 if (!member.phone.match(/^[0-9]{10}$/)) {
-                    toast('Please enter a valid phone number', { type: 'error', position: 'top-right' });
+                    toast('Please enter a valid phone number', {
+                        type: 'error',
+                        position: 'top-right',
+                    });
                     setIsSubmitting(false);
                     return;
                 }
                 if (!member.guardian_phone.match(/^[0-9]{10}$/)) {
-                    toast('Please enter a valid guardian phone number', { type: 'error', position: 'top-right' });
+                    toast('Please enter a valid guardian phone number', {
+                        type: 'error',
+                        position: 'top-right',
+                    });
                     setIsSubmitting(false);
                     return;
                 }
                 if (
-                    !member.srn.match(/^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/)
+                    !member.srn.match(
+                        /^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/
+                    )
                 ) {
-                    toast('Please enter a valid SRN', { type: 'error', position: 'top-right' });
+                    toast('Please enter a valid SRN', {
+                        type: 'error',
+                        position: 'top-right',
+                    });
                     setIsSubmitting(false);
                     return;
                 }
@@ -198,7 +220,10 @@ function RegistrationForm() {
             .from('Team')
             .insert([teamDetails]);
         if (error) {
-            toast('Server Error! Please try again later', { type: 'error', position: 'top-right' });
+            toast('Server Error! Please try again later', {
+                type: 'error',
+                position: 'top-right',
+            });
             setIsSubmitting(false);
         } else {
             let team = await supabase
@@ -223,10 +248,17 @@ function RegistrationForm() {
                     .insert([{ member_id: memberId }]);
                 setIsSubmitting(false);
                 if (error1 || error2) {
-                    toast('Error in registering team', { type: 'error', position: 'top-right' });
+                    toast('Error in registering team', {
+                        type: 'error',
+                        position: 'top-right',
+                    });
                     setIsSubmitting(false);
                 } else {
-                    toast('Team Registered Successfully', { type: 'success', position: 'bottom-right', toastId: 'success' });
+                    toast('Team Registered Successfully', {
+                        type: 'success',
+                        position: 'bottom-right',
+                        toastId: 'success',
+                    });
                     setIsSubmitting(false);
                     router.push('/success');
                 }
@@ -234,8 +266,8 @@ function RegistrationForm() {
         }
     });
     return (
-        <div className='max-w-5xl mx-auto my-20 p-2 font-agency'>
-            <div className='flex justify-between items-center'>
+        <div className='registration__form max-w-5xl mx-auto my-20 p-2 font-agency'>
+            <div className='flex justify-between items-center border-b-2 border-white mb-16'>
                 <h1 className='text-step-4 font-bold'>Registration Form</h1>
                 <div className='flex flex-row gap-2'>
                     <button className='btn' onClick={saveToLocalStorage}>
@@ -269,7 +301,8 @@ function RegistrationForm() {
                 </label> */}
 
                 <label htmlFor='solution'>
-                    How can you use Open Source to solve everyday problems? Explain your problem statement and solution in briefly.
+                    How can you use Open Source to solve everyday problems?
+                    Explain your problem statement and solution in briefly.
                     <textarea
                         required
                         type='text'

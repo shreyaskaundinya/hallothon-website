@@ -14,10 +14,10 @@
     font-family: 'Agency FB';
     padding: 2rem;
 }
-
+/* 
 .grid * {
     border: 1px solid;
-}
+} */
 
 .herogrid {
     display: flex;

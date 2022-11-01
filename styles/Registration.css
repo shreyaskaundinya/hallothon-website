@@ -1,0 +1,7 @@
+.registration__form label {
+    @apply text-step-1;
+}
+
+.registration__form button {
+    @apply text-step-1;
+}

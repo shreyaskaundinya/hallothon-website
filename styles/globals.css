@@ -4,6 +4,7 @@
 @import 'HeroUpdate.css';
 @import 'Loading.css';
 @import 'AboutUs.css';
+@import 'Registration.css';
 @import 'Faq.css';
 @import 'Footer.css';
 @import 'Prizepool.css';
@@ -15,10 +16,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-  font-family: "Agency FB";
-  src: url("/font/agency-fb.ttf");
+    font-family: 'Agency FB';
+    src: url('/font/agency-fb.ttf');
 }
 
 html,
@@ -71,5 +71,5 @@ a {
 }
 
 .get-border * {
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
