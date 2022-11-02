@@ -323,7 +323,7 @@ function RegistrationForm() {
                     <br></br>
                     <span><span className='text-red-600 font-bold'>5.</span> Come up with a problem statement and explain your solution in detail for the same</span>
                     <br></br>
-                    Explain your solution for the problem statement in detail below, please mention the problem statement number.
+                    Explain your solution for <u>one of the above</u> problem statement in detail. Please mention the problem statement number.
                     <textarea
                         required
                         type='text'
