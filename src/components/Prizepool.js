@@ -151,7 +151,7 @@ function InfoCard(props) {
         <div className='relative p-2 sm:scale-100'>
             <SpiderBorder />
             <div className='absolute top-0 left-0 right-0 bottom-4 grid place-items-center'>
-                <div className='prizepoolbox w-2/3 sm:w-3/4'>
+                <div className='prizepoolbox w-2/3 sm:w-3/4 bg-[#181818]'>
                     <div className='text-step-1 sm:text-step-2 font-agency font-bold'>
                         {props.heading}
                     </div>
