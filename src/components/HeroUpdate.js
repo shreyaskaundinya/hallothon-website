@@ -1,62 +1,107 @@
 import { useRouter } from 'next/router';
 import React from 'react';
+import { animated, useSpring } from 'react-spring';
+import { animations } from '../../utils/HeroAnimations';
 import Skull from './Skull';
 import Timer from './Timer';
+
 function HeroUpdate() {
     let router = useRouter();
+
+    const hallothonClipStyle = useSpring(animations.clip);
+    const hallothonUpStyle = useSpring(animations.up);
+    const hallothonMidLeftStyle = useSpring(animations.midLeft);
+    const hallothonMidRightStyle = useSpring(animations.midRight);
+    const hallothonSideLeftStyle = useSpring(animations.sideLeft);
+    const hallothonSideRightStyle = useSpring(animations.sideRight);
+    const hallothonInOutStyle = useSpring(animations.inOut);
+    const hallothonDashLeftStyle = useSpring(animations.dashLeft);
+    const hallothonDashRightStyle = useSpring(animations.dashRight);
+
     return (
-        <>
+        <div className='overflow-hidden'>
             <div className='hidden sm:block'>
                 <div className='hero overflow-hidden'>
                     <div className='herogrid'>
                         <div className='top-bar'>
-                            <span className='font-poppins stroke-red'>HALLO</span>
+                            <animated.span
+                                className='font-poppins stroke-red'
+                                style={hallothonClipStyle}>
+                                HALLO
+                            </animated.span>
                         </div>
-                        <div className='year-bar'>
+                        <animated.div
+                            className='year-bar'
+                            style={hallothonInOutStyle}>
                             <span>2022</span>
-                        </div>
+                        </animated.div>
 
                         <div className='mid-bar'>
                             <div className='hallo-mid'>
-                                <div className='left-box'></div>
-                                <span className='vertical-text left-vertical-hallothon'>
+                                <animated.div
+                                    className='left-box'
+                                    style={
+                                        hallothonDashLeftStyle
+                                    }></animated.div>
+                                <animated.span
+                                    className='vertical-text left-vertical-hallothon'
+                                    style={hallothonSideLeftStyle}>
                                     HALLOTHON
-                                </span>
-                                <span
+                                </animated.span>
+                                <animated.span
                                     className='font-poppins'
-                                    data-text='HALLO'>
+                                    data-text='HALLO'
+                                    style={hallothonMidLeftStyle}>
                                     HALLO
-                                </span>
+                                </animated.span>
                             </div>
                             <div className='thon-mid'>
-                                <span className='font-poppins' data-text='THON'>
+                                <animated.span
+                                    className='font-poppins'
+                                    data-text='THON'
+                                    style={hallothonMidRightStyle}>
                                     THON
-                                </span>
-                                <span className='vertical-text right-vertical-hallothon'>
+                                </animated.span>
+                                <animated.span
+                                    className='vertical-text right-vertical-hallothon'
+                                    style={hallothonSideRightStyle}>
                                     HALLOTHON
-                                </span>
-                                <div className='right-box'></div>
+                                </animated.span>
+                                <animated.div
+                                    className='right-box'
+                                    style={
+                                        hallothonDashRightStyle
+                                    }></animated.div>
                             </div>
                         </div>
 
                         <div className='end-bar'>
                             <div className='register'>
-                                <button className='register-button register-button-lg'  onClick={()=>{router.push('/register')}}>
+                                <animated.button
+                                    className='register-button register-button-lg'
+                                    onClick={() => {
+                                        router.push('/register');
+                                    }}
+                                    style={hallothonInOutStyle}>
                                     REGISTER
-                                </button>
+                                </animated.button>
                             </div>
                             <div className='thon-end'>
-                                <span className='font-poppins stroke-red'>
+                                <animated.span
+                                    className='font-poppins stroke-red'
+                                    style={hallothonClipStyle}>
                                     THON
-                                </span>
+                                </animated.span>
                             </div>
                         </div>
                     </div>
 
                     <div className='skull'>
-                        <div className='glitch relative'>
+                        <animated.div
+                            className='glitch relative'
+                            style={hallothonInOutStyle}>
                             <Skull />
-                        </div>
+                        </animated.div>
                     </div>
                 </div>
                 <div>
@@ -65,54 +110,46 @@ function HeroUpdate() {
             </div>
 
             <div className='block sm:hidden h-screen'>
-                {/* <div className='flex flex-col bg-green-400 bg-opacity-60'>
-                    <div className='flex-1 flex flex-col justify-between'>
-                        <div className='flex flex-col'>
-                            <div className='flex flex-col items-center justify-center'>
-                                <div className='flex flex-col'>
-                                    <p className='font-poppins text-step-11 font-extrabold'>
-                                        HALLOTHON
-                                    </p>
-                                    <p className='self-end font-agency'>2022</p>
-                                </div>
-                            </div>
-                            <p className='text-step-10 pl-12 font-extrabold stroke'>
-                                HALLO
-                            </p>
-                        </div>
-
-                        <div className='flex flex-col'>
-                            <p className='text-step-10 stroke font-extrabold pr-12 text-right'>THON</p>
-                            <p>Register</p>
-                        </div>
-                    </div>
-                    <div>
-                        <Timer />
-                    </div>
-                </div> */}
                 <div class='mob__grid'>
-                    <div class='mob__header'>
+                    <animated.div class='mob__header' style={hallothonUpStyle}>
                         <p>
-                            <span className="font-poppins">HALLOTHON</span>
+                            <span className='font-poppins'>HALLOTHON</span>
                             <span class='mob__year'>2022</span>
                         </p>
-                    </div>
+                    </animated.div>
 
-                    <div class='mob__hallo'>HALLO</div>
-                    <div class='mob__thon'>THON</div>
+                    <animated.div
+                        style={hallothonMidLeftStyle}
+                        class='mob__hallo'>
+                        HALLO
+                    </animated.div>
+                    <animated.div
+                        style={hallothonMidRightStyle}
+                        class='mob__thon'>
+                        THON
+                    </animated.div>
                     <div class='mob__register'>
-                        <button className='register-button register-button-sm' onClick={()=>{router.push('/register')}}>Register</button>
+                        <animated.button
+                            style={hallothonInOutStyle}
+                            className='register-button register-button-sm'
+                            onClick={() => {
+                                router.push('/register');
+                            }}>
+                            Register
+                        </animated.button>
                     </div>
-                    <div className='mob__skull'>
+                    <animated.div
+                        style={hallothonInOutStyle}
+                        className='mob__skull'>
                         <Skull />
-                    </div>
-                    <div className="mob__timer">
+                    </animated.div>
+                    <div className='mob__timer'>
                         <Timer />
                     </div>
-                    <div className="mob__leftbox"></div>
+                    <div className='mob__leftbox'></div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

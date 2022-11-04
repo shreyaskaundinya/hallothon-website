@@ -14,14 +14,16 @@ function MyApp({ Component, pageProps }) {
         const handleLoading = () => {
             setLoading(1);
         };
+
         const handleLoaded = () => {
             timeout = setTimeout(() => {
                 setLoading(() => 0);
             }, 1000);
         };
+
         const loadingTimeout = setTimeout(() => {
             setLoading(() => 0);
-        }, 2000);
+        }, 1500);
 
         if (process.browser) {
             Router.events.on('routeChangeStart', handleLoading);
