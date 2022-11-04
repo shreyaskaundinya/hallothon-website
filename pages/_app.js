@@ -4,6 +4,7 @@ import Loading from '../src/components/Loading';
 import '../styles/globals.css';
 
 import { animated, config, Transition } from 'react-spring';
+import Cursor from '../src/components/Cursor';
 
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = useState(1);
@@ -39,25 +40,28 @@ function MyApp({ Component, pageProps }) {
     }, []);
 
     return (
-        <Transition
-            items={loading}
-            from={{ opacity: 0 }}
-            enter={{ opacity: 1 }}
-            reverse={loading}
-            delay={200}
-            config={config.molasses}>
-            {(styles, item) => {
-                return loading ? (
-                    <animated.div style={styles}>
-                        <Loading loading={loading} />
-                    </animated.div>
-                ) : (
-                    <animated.div style={styles}>
-                        <Component {...pageProps} />
-                    </animated.div>
-                );
-            }}
-        </Transition>
+        <>
+            <Transition
+                items={loading}
+                from={{ opacity: 0 }}
+                enter={{ opacity: 1 }}
+                reverse={loading}
+                delay={200}
+                config={config.molasses}>
+                {(styles, item) => {
+                    return loading ? (
+                        <animated.div style={styles}>
+                            <Loading loading={loading} />
+                        </animated.div>
+                    ) : (
+                        <animated.div style={styles}>
+                            <Component {...pageProps} />
+                        </animated.div>
+                    );
+                }}
+            </Transition>
+            <Cursor />
+        </>
     );
 }
 
