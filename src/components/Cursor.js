@@ -45,7 +45,7 @@ function Cursor() {
 
     return (
         <animated.div
-            className='fixed w-6 h-6 rounded-full bg-hallored shadow-xl z-[10000] pointer-events-none'
+            className='fixed w-6 h-6 rounded-full bg-hallored shadow-xl z-[10000] pointer-events-none hidden sm:inline-block'
             style={cursorStyles}></animated.div>
     );
 }
