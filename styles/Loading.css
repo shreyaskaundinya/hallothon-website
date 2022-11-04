@@ -16,4 +16,5 @@
 .loading__header {
     font-size: 20vw;
     color: #fff;
+    position: relative;
 }

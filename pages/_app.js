@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
-import '../styles/globals.css';
 import Router from 'next/router';
-import Loading from '../src/components/Loading'
+import { useEffect, useState } from 'react';
+import Loading from '../src/components/Loading';
+import '../styles/globals.css';
+
+import { animated, config, Transition } from 'react-spring';
 
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = useState(1);
@@ -34,10 +36,26 @@ function MyApp({ Component, pageProps }) {
         };
     }, []);
 
-    return loading ? (
-        <Loading loading={loading} />
-    ) : (
-        <Component {...pageProps} />
+    return (
+        <Transition
+            items={loading}
+            from={{ opacity: 0 }}
+            enter={{ opacity: 1 }}
+            reverse={loading}
+            delay={200}
+            config={config.molasses}>
+            {(styles, item) => {
+                return loading ? (
+                    <animated.div style={styles}>
+                        <Loading loading={loading} />
+                    </animated.div>
+                ) : (
+                    <animated.div style={styles}>
+                        <Component {...pageProps} />
+                    </animated.div>
+                );
+            }}
+        </Transition>
     );
 }
 
