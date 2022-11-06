@@ -268,7 +268,7 @@ function RegistrationForm() {
     });
     return (
         <>
-        <div className='text-left text-step-2 mx-5 my-1 '>Registrations Ending in:</div>
+        <div className='text-center text-step-2 mx-5 my-2 font-bold '>REGISTRATIONS ENDING IN :</div>
         <Timer/>
         <div className='registration__form max-w-5xl mx-auto my-20 p-4 md:p-2 font-agency'>
             <div className='flex justify-between items-center border-b-2 border-white mb-16 pb-4'>
