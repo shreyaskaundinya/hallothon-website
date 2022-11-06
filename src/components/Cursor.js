@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
-import { animated, useSpring } from 'react-spring';
+import { animated, config, useSpring } from 'react-spring';
 
 function Cursor() {
     const [cursorPoint, setCursorPoint] = useState([0, 0]);
     const [mousedown, setMouseDown] = useState(false);
 
     const cursorStyles = useSpring({
-        left: cursorPoint[0],
-        top: cursorPoint[1],
-        scale: mousedown ? 0.5 : 1,
+        to: {
+            left: cursorPoint[0],
+            top: cursorPoint[1],
+            scale: mousedown ? 0.5 : 1,
+        },
+        config: config.stiff,
     });
 
     useEffect(() => {
