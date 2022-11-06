@@ -61,11 +61,6 @@ body {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
     scroll-behavior: smooth;
     @apply scroll-pt-40;
-    cursor: none;
-}
-
-:hover {
-    cursor: none;
 }
 
 a {

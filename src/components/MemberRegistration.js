@@ -33,7 +33,7 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
 
     return (
         <div className='border-2 border-white rounded-lg p-4 my-8 font-agency'>
-            <p className='font-bold text-step-2 m-2 text-white'>
+            <p className='font-bold text-step-1 m-2 text-white'>
                 Member {index + 1}
             </p>
             <hr />

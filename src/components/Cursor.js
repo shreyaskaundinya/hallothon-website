@@ -17,7 +17,7 @@ function Cursor() {
     useEffect(() => {
         let timer;
         const handleMouseMove = (e) => {
-            console.log(e);
+            // console.log(e);
             setCursorPoint(() => [e.clientX - 12, e.clientY - 12]);
         };
 

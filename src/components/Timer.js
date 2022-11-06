@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-function Timer() {
+function Timer(props) {
     const calculateTimeLeft = () => {
-        const difference = new Date('2022/11/08 23:59:59') - new Date();
+        const difference = new Date(props.date) - new Date();
         let timeLeft = [];
 
         if (difference > 0) {
