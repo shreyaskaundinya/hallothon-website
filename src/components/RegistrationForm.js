@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { supabase } from '../../utils/supabaseClient';
 import MemberRegistration from './MemberRegistration';
+import Timer from './Timer';
 
 let MAX_MEMBERS = 4;
 
@@ -266,6 +267,9 @@ function RegistrationForm() {
         }
     });
     return (
+        <>
+        <div className='text-left text-step-2 mx-5 my-1 '>Registrations Ending in:</div>
+        <Timer/>
         <div className='registration__form max-w-5xl mx-auto my-20 p-4 md:p-2 font-agency'>
             <div className='flex justify-between items-center border-b-2 border-white mb-16 pb-4'>
                 <h1 className='text-step-4 font-bold'>Registration Form</h1>
@@ -449,6 +453,7 @@ function RegistrationForm() {
             </form>
             <ToastContainer />
         </div>
+        </>
     );
 }
 export default RegistrationForm;
