@@ -2,11 +2,10 @@ import Head from 'next/head';
 import AboutUs from '../src/components/AboutUs';
 import Faq from '../src/components/Faq';
 import Footer from '../src/components/Footer';
-import Game from '../src/components/game/Game';
 import HeroUpdate from '../src/components/HeroUpdate';
 import Navbar from '../src/components/Navbar';
 import Prizepool from '../src/components/Prizepool';
-import Sponsor from '../src/components/Sponsor';
+import TimelineSection from '../src/components/Timeline';
 
 export default function Home() {
     return (
@@ -21,6 +20,7 @@ export default function Home() {
             <Prizepool />
             {/* <Sponsor /> */}
             <AboutUs />
+            <TimelineSection />
             <Faq />
             <Footer className='absolute b-0' />
         </div>
