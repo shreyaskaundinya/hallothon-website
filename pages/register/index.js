@@ -1,5 +1,5 @@
-import Navbar from '../../src/components/Navbar';
 import Head from 'next/head';
+import Navbar from '../../src/components/Navbar';
 import RegistrationForm from '../../src/components/RegistrationForm';
 
 function Registration() {
@@ -12,7 +12,9 @@ function Registration() {
             </Head>
             <Navbar />
             {/* <div className='text-5xl text-center py-16'>Registrations Opening at 11:59 PM Today</div> */}
-             <RegistrationForm />
+            <div className='font-poppins'>
+                <RegistrationForm />
+            </div>
         </div>
     );
 }

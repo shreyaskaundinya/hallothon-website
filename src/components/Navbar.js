@@ -20,7 +20,7 @@ function Navbar() {
     ];
 
     return (
-        <div className='z-[2000] sticky top-0'>
+        <div className='z-[1399] sticky top-0'>
             <div className='navbar sm:flex'>
                 <Image
                     src='/assets/pes.svg'
