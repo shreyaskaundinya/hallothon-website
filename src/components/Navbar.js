@@ -28,6 +28,12 @@ function Navbar() {
                     width={109}
                     height={34}
                 />
+                <Image
+                    src='/assets/cse-logo.png'
+                    alt='CSE'
+                    width={109}
+                    height={34}
+                />
                 <div className='links'>
                     {paths.map((p) => {
                         return p.path.charAt(0) === '/' ? (
