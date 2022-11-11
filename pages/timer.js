@@ -44,6 +44,11 @@ function Timer() {
             <h1 className='text-center text-step-9 font-extrabold font-agency'>
                 Hallothon 2022
             </h1>
+            <h2 className='text-center text-step-6'>
+                VISIT :{' '}
+                <span className='font-bold'>cse-hallothon.tech/timer</span> (For
+                Timer and Announcements)
+            </h2>
             <div className='grid grid-flow-col grid-cols-3 items-center justify-center p-8 gap-6'>
                 <div className='grid place-items-center border-4 border-hallored h-full p-6'>
                     <Image
