@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { announcements } from '../utils/announcements';
 
 function Timer() {
     const [timeup, setTimeup] = useState(false);
@@ -63,11 +64,10 @@ function Timer() {
                 </div>
                 <div className='grid place-items-center border-4 border-hallored h-full p-6'>
                     <Image
-                        src='/assets/cloudera.png'
+                        src='/assets/cloudera-orange-logo.png'
                         alt='Cloudera'
-                        height={626 / 10}
-                        width={5132 / 10}
-                        className=''
+                        height={91}
+                        width={368}
                     />
                 </div>
             </div>
@@ -130,6 +130,23 @@ function Timer() {
                         </div>
                     </>
                 )}
+            </div>
+
+            <div className='text-white max-w-4xl mx-auto py-20'>
+                <h2 className='text-step-5 text-center font-bold'>
+                    Announcements
+                </h2>
+                <div className='flex flex-col gap-2 font-poppins py-8'>
+                    {announcements.map((a) => {
+                        return (
+                            <div className='border p-4'>
+                                <p className='text-xl font-bold'>{a.title}</p>
+                                <br />
+                                <p>{a.desc}</p>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
