@@ -78,8 +78,8 @@ function RegistrationForm() {
                     {
                         name: '',
                         email: '',
-                        srn: '',
-                        campus: 'EC',
+                        college_id: '',
+                        college: 'PES RR Campus',
                         sem: '1',
                         year: 0,
                         branch: 'CSE',
@@ -159,7 +159,7 @@ function RegistrationForm() {
                 if (
                     member.name === '' ||
                     member.email === '' ||
-                    member.srn === '' ||
+                    member.college_id === '' ||
                     member.phone === '' ||
                     member.guardian_name === '' ||
                     member.guardian_phone === ''
@@ -201,18 +201,18 @@ function RegistrationForm() {
                     setIsSubmitting(false);
                     return;
                 }
-                if (
-                    !member.srn.match(
-                        /^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/
-                    )
-                ) {
-                    toast('Please enter a valid SRN', {
-                        type: 'error',
-                        position: 'top-right',
-                    });
-                    setIsSubmitting(false);
-                    return;
-                }
+                // if (
+                //     !member.srn.match(
+                //         /^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/
+                //     )
+                // ) {
+                //     toast('Please enter a valid SRN', {
+                //         type: 'error',
+                //         position: 'top-right',
+                //     });
+                //     setIsSubmitting(false);
+                //     return;
+                // }
             }
             registerTeam(teamDetails, memberDetails);
         }
@@ -244,7 +244,7 @@ function RegistrationForm() {
                 let currMember = await supabase
                     .from('Member')
                     .select('id')
-                    .eq('srn', member.srn);
+                    .eq('college_id', member.college_id);
                 let memberId = currMember.data[0].id;
                 const { data2, error2 } = await supabase
                     .from('MemberStatus')
@@ -310,7 +310,7 @@ function RegistrationForm() {
                                 details as you won't be able to edit it later.
                                 After you are done, click on the Submit button,
                                 and that's it , your team is registered for
-                                Hallothon 2022!
+                                Hallothon 2023!
                             </p>
                             <p className='underline italic '>
                                 - We will be selecting teams on the basis of the

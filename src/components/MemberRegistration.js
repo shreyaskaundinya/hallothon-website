@@ -2,8 +2,8 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
     /*
     name: '',
     email: '',
-    srn: '',
-    campus: '',
+    college: '',
+    srn/ college id: '',
     sem: '',
     year: '',
     branch: '',
@@ -59,13 +59,13 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                     />
                 </label>
                 <label htmlFor='srn'>
-                    SRN
+                    College ID (SRN)
                     <input
                         required
                         type='text'
                         name='srn'
                         onChange={handleUpdate}
-                        value={member.srn}
+                        value={member.college_id}
                     />
                 </label>
                 <div className='flex gap-2'>
@@ -94,18 +94,17 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                     )}
                 </div>
                 <div className='sm:flex gap-2'>
-                    <label htmlFor='campus' className='flex-1'>
-                        Campus
-                        <select
+                    <label htmlFor='college' className='flex-1'>
+                        College
+                        <input
                             required
+                            type="text"
                             className=''
-                            name='campus'
+                            name='college'
                             onChange={handleUpdate}
                             // onClick={handleUpdate}
-                            value={member.campus}>
-                            <option value='EC'>EC Campus</option>
-                            <option value='RR'>RR Campus</option>
-                        </select>
+                            value={member.college}>
+                        </input>
                     </label>
                     <label htmlFor='sem' className='flex-1'>
                         SEM
