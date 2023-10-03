@@ -104,9 +104,9 @@ function HeroUpdate() {
                         </animated.div>
                     </div>
                 </div>
-                {/* <div>
-                    <Timer date={'2023/11/11 16:00:00'} />
-                </div> */}
+                <div>
+                    <Timer date={'2023/10/20 16:00:00'} />
+                </div>
             </div>
 
             <div className='block sm:hidden h-screen'>
@@ -143,9 +143,9 @@ function HeroUpdate() {
                         className='mob__skull'>
                         <Skull />
                     </animated.div>
-                    {/* <div className='mob__timer'>
-                        <Timer date={'2023/11/11 16:00:00'} />
-                    </div> */}
+                    <div className='mob__timer'>
+                        <Timer date={'2023/10/20 16:00:00'} />
+                    </div>
                     <div className='mob__leftbox'></div>
                 </div>
             </div>
