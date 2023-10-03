@@ -1,11 +1,7 @@
 export const faqs = [
     {
-        q: 'Can students from both EC and RR campuses participate?',
-        ans: `Yes, we are open to students from both the campuses.`,
-    },
-    {
         q: 'When and Where is the hackathon being held?',
-        ans: `MRD Auditorium in RR Campus. It starts at 5:00 PM on 11th November 2022 and ends at 5:00 PM on 12th November 2022.`,
+        ans: `PESU 52 in RR Campus. It starts at 5:00 PM on 31th October 2023 and ends at 5:00 PM on 1st November 2023.`,
     },
     {
         q: 'When will the itenary be released?',

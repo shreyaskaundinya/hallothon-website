@@ -168,8 +168,8 @@ export default function Prizepool() {
     return (
         <div className='flex flex-col sm:flex-row sm:flex-wrap items-center justify-around py-40'>
             <InfoCard heading='Prize Pool' body='Rs.1,50,000 +' />
-            <InfoCard heading='Date' body='11th - 12th Nov 2022' />
-            <InfoCard heading='Venue' body='MRD Auditorium' />
+            <InfoCard heading='Date' body='31st October  2023' />
+            <InfoCard heading='Venue' body='PESU 52' />
         </div>
     );
 }
