@@ -58,12 +58,12 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         value={member.email}
                     />
                 </label>
-                <label htmlFor='srn'>
+                <label htmlFor='college_id'>
                     College ID (SRN)
                     <input
                         required
                         type='text'
-                        name='srn'
+                        name='college_id'
                         onChange={handleUpdate}
                         value={member.college_id}
                     />
@@ -116,8 +116,11 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                             // onClick={handleUpdate}
                             value={member.sem}>
                             <option value='1'>1st Sem</option>
-                            <option value='3'>3st Sem</option>
+                            <option value='2'>2nd Sem</option>
+                            <option value='3'>3rd Sem</option>
+                            <option value='4'>4th Sem</option>
                             <option value='5'>5th Sem</option>
+                            <option value='6'>6th Sem</option>
                             <option value='7'>7th Sem</option>
                         </select>
                     </label>
