@@ -23,7 +23,7 @@ function Hero() {
                             HALLO
                         </p>
                         <p className='w-full text-right pr-[10vw] text-8xl font-agency leading-none tracking-widest'>
-                            2022
+                            2023
                         </p>
                         <p className='w-full sub-title leading-tight flex justify-between px-20'>
                             <span>-HALLO</span>
@@ -53,7 +53,7 @@ function Hero() {
                             HALLOTHON
                         </p>
                         <p className='self-end main-title text-2xl font-agency leading-none tracking-widest'>
-                            2022
+                            2023
                         </p>
                     </h2>
                 </div>
