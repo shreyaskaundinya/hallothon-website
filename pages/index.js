@@ -20,7 +20,7 @@ export default function Home() {
             <Prizepool />
             {/* <Sponsor /> */}
             <AboutUs />
-            <TimelineSection />
+            {/* <TimelineSection /> */}
             <Faq />
             <Footer className='absolute b-0' />
         </div>

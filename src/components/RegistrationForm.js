@@ -332,7 +332,7 @@ function RegistrationForm() {
                                 value={teamDetails.team_name}
                             />
                         </label>
-                        {/* <label htmlFor='problem'>
+                       <label htmlFor='problem'>
                     Problem
                     <textarea
                         required
@@ -341,7 +341,7 @@ function RegistrationForm() {
                         onChange={updateTeamDetails}
                         value={teamDetails.problem}
                     />
-                </label> */}
+                </label>
 
                         <label htmlFor='solution'>
                             <div className='flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg'>
