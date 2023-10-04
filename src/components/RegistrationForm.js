@@ -78,8 +78,8 @@ function RegistrationForm() {
                     {
                         name: '',
                         email: '',
-                        srn: '',
-                        campus: 'EC',
+                        college_id: '',
+                        college: 'PES RR Campus',
                         sem: '1',
                         year: 0,
                         branch: 'CSE',
@@ -159,7 +159,7 @@ function RegistrationForm() {
                 if (
                     member.name === '' ||
                     member.email === '' ||
-                    member.srn === '' ||
+                    member.college_id === '' ||
                     member.phone === '' ||
                     member.guardian_name === '' ||
                     member.guardian_phone === ''
@@ -201,18 +201,18 @@ function RegistrationForm() {
                     setIsSubmitting(false);
                     return;
                 }
-                if (
-                    !member.srn.match(
-                        /^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/
-                    )
-                ) {
-                    toast('Please enter a valid SRN', {
-                        type: 'error',
-                        position: 'top-right',
-                    });
-                    setIsSubmitting(false);
-                    return;
-                }
+                // if (
+                //     !member.srn.match(
+                //         /^(pes|PES)[1-2](ug|UG)(19|2[0-2])..\d\d\d/
+                //     )
+                // ) {
+                //     toast('Please enter a valid SRN', {
+                //         type: 'error',
+                //         position: 'top-right',
+                //     });
+                //     setIsSubmitting(false);
+                //     return;
+                // }
             }
             registerTeam(teamDetails, memberDetails);
         }
@@ -244,7 +244,7 @@ function RegistrationForm() {
                 let currMember = await supabase
                     .from('Member')
                     .select('id')
-                    .eq('srn', member.srn);
+                    .eq('college_id', member.college_id);
                 let memberId = currMember.data[0].id;
                 const { data2, error2 } = await supabase
                     .from('MemberStatus')
@@ -273,7 +273,7 @@ function RegistrationForm() {
             <div className='text-center text-step-2 mx-5 my-2 font-bold'>
                 REGISTRATIONS ENDING IN :
             </div>
-            <Timer setDone={setIsRegOpen} date={'2023/10/20 10:45:00'} />
+            <Timer setDone={setIsRegOpen} date={'2023/10/25 10:45:00'} />
             {!isRegOpen ? (
                 <div className='registration__form max-w-5xl mx-auto my-20 p-4 md:p-2 font-agency'>
                     <div className='flex justify-between items-center border-b-2 border-white mb-16 pb-4'>
@@ -310,7 +310,7 @@ function RegistrationForm() {
                                 details as you won't be able to edit it later.
                                 After you are done, click on the Submit button,
                                 and that's it , your team is registered for
-                                Hallothon 2022!
+                                Hallothon 2023!
                             </p>
                             <p className='underline italic '>
                                 - We will be selecting teams on the basis of the
@@ -332,7 +332,7 @@ function RegistrationForm() {
                                 value={teamDetails.team_name}
                             />
                         </label>
-                        {/* <label htmlFor='problem'>
+                       <label htmlFor='problem'>
                     Problem
                     <textarea
                         required
@@ -341,7 +341,7 @@ function RegistrationForm() {
                         onChange={updateTeamDetails}
                         value={teamDetails.problem}
                     />
-                </label> */}
+                </label>
 
                         <label htmlFor='solution'>
                             <div className='flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg'>
