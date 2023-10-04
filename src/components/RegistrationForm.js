@@ -282,7 +282,7 @@ function RegistrationForm() {
       <div className="text-center text-step-2 mx-5 my-2 font-bold">
         REGISTRATIONS ENDING IN :
       </div>
-      <Timer setDone={setIsRegOpen} date={"2023/10/25 10:45:00"} />
+      <Timer setDone={setIsRegOpen} date={"2023/10/10 12:00:00"} />
       {!isRegOpen ? (
         <div className="registration__form max-w-5xl mx-auto my-20 p-4 md:p-2 font-agency">
           <div className="flex justify-between items-center border-b-2 border-white mb-16 pb-4">
@@ -387,13 +387,9 @@ function RegistrationForm() {
                 name="domain"
                 onChange={updateTeamDetails}
                 value={teamDetails.domain}>
-                    <option value='1'>1st Sem</option>
-                            <option value='2'>2nd Sem</option>
-                            <option value='3'>3rd Sem</option>
-                            <option value='4'>4th Sem</option>
-                            <option value='5'>5th Sem</option>
-                            <option value='6'>6th Sem</option>
-                            <option value='7'>7th Sem</option>
+                    <option value='Web 3.0'>Web 3.0</option>
+                    <option value='Ed tech'>Ed Tech</option>
+                    <option value='Auto tech'>Auto Tech</option>
               </select>      
             </label>
             <label htmlFor="solution_url">
