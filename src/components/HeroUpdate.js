@@ -105,7 +105,7 @@ function HeroUpdate() {
                     </div>
                 </div>
                 <div>
-                    <Timer date={'2023/10/20 16:00:00'} />
+                    <Timer date={'2023/10/14 9:00:00'} />
                 </div>
             </div>
 
