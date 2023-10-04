@@ -14,6 +14,7 @@ function RegistrationForm() {
         team_name: '',
         problem: '',
         solution: '',
+        solution_url: '',
         domain: '',
     });
 
@@ -79,7 +80,7 @@ function RegistrationForm() {
                         name: '',
                         email: '',
                         college_id: '',
-                        college: 'PES RR Campus',
+                        college: '',
                         sem: '1',
                         year: 0,
                         branch: 'CSE',
@@ -345,87 +346,20 @@ function RegistrationForm() {
 
                         <label htmlFor='solution'>
                             <div className='flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg'>
-                                <span className='text-red-600'>
+                                {/* <span className='text-red-600'>
                                     Problem Statements , Choose any one:
-                                </span>
+                                </span> */}
+                                    
                                 <span>
-                                    <span className='text-red-600 font-bold'>
-                                        1.
-                                    </span>{' '}
-                                    With the introduction of concept of smart
-                                    cities and smart health care and
-                                    applications of IoT in various sectors, huge
-                                    mounts of data will be generated. Long term
-                                    success of these projects will depend on the
-                                    underlying data analytics capability. Data
-                                    transmitted by sensors needs to be
-                                    continuously processed in real time ,
-                                    creating triggers or alarms in immediate
-                                    terms and also deriving intelligent insights
-                                    in the long term. Explain in detail how
-                                    would you tackle the collection and handling
-                                    of such huge amount of data in real time
-                                    taking the example of any iot device of your
-                                    choice. Also describe the approaches to
-                                    learn from the data collected by listing out
-                                    the various analytics techniques used to
-                                    learn the data and possibly build a model to
-                                    handle the real time inflow and learning of
-                                    the data.
-                                </span>
-                                <br></br>
-                                <span>
-                                    <span className='text-red-600 font-bold'>
-                                        2.
-                                    </span>{' '}
-                                    Most of the established software companies
-                                    have large code-bases with millions of lines
-                                    of code. The developers find it difficult to
-                                    navigate through different files to find
-                                    different functions and macros. Consider the
-                                    concept of auto-completion to ease the
-                                    developer experience. Come up with a
-                                    solution to efficiently create this feature
-                                    in a text/code editor. Think of ways, where
-                                    the data for auto-completion for a codebase
-                                    can be shared across the team so as to keep
-                                    in sync with the rest of them.
-                                </span>
-                                <br></br>
-                                <span>
-                                    <span className='text-red-600 font-bold'>
-                                        3.
-                                    </span>{' '}
-                                    How would you <b>architect</b> a real-time,
-                                    collaborative virtual whiteboard? Go into as
-                                    much detail <b>(technical)</b> as possible -
-                                    Algorithms, Tech stack, Concepts that may
-                                    apply, Protocols etc.
-                                </span>
-                                <br></br>
-                                <span>
-                                    <span className='text-red-600 font-bold'>
-                                        4.
-                                    </span>{' '}
-                                    There is a group of hospital chains that
-                                    have come together to collaborate on
-                                    research in the field of medicine. Suggest
-                                    ideas to efficiently tackle huge amount of
-                                    geographically distributed data in multiple
-                                    formats (especially for use in making
-                                    Machine Learning models, doing analytics).
-                                    Go into as much detail <b>(technical)</b> as
-                                    possible - Algorithms, Tech stack, Concepts
-                                    that may apply, Protocols etc.
-                                </span>
-                                <br></br>
-                                <span>
-                                    <span className='text-red-600 font-bold'>
+                                    {/* <span className='text-red-600 font-bold'>
                                         5.
-                                    </span>{' '}
+                                    </span>{' '} */}
                                     Come up with a problem statement and explain
                                     your solution in detail for the same
                                 </span>
+                                <span>
+                                    Please create a presentation that includes the problem statement and your proposed solution, following the provided template. After creating the presentation, upload it to Google Drive and share the link with us. Ensure that the document is set to 'public' access.
+                                    </span>
                                 <br></br>
                             </div>
                             <span className='mt-4'>
