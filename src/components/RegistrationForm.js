@@ -252,8 +252,7 @@ function RegistrationForm() {
         const { data1, error1 } = await supabase
           .from("Member")
           .insert([member]);
-        console.log("Inserting Member");
-        console.log(data1, error1);
+        
         let currMember = await supabase
           .from("Member")
           .select("id")
