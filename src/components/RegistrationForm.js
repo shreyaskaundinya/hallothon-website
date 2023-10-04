@@ -121,6 +121,7 @@ function RegistrationForm() {
     [membersDetails],
   );
   const validateData = useCallback(async (teamDetails, memberDetails) => {
+    // console.log("in validate")
     setIsSubmitting(true);
     const { data, error } = await supabase.from("Team").select("team_name");
     if (error) {
@@ -139,6 +140,7 @@ function RegistrationForm() {
         teamDetails.domain === "" ||
         teamDetails.solution_url === ""
       ) {
+        console.log(teamDetails);
         toast("Please fill all the fields in the team details section", {
           type: "error",
           position: "top-right",
@@ -156,14 +158,14 @@ function RegistrationForm() {
         return false;
       }
 
-      if (memberDetails.length < 3 || memberDetails.length > 4) {
-        toast("Team should have atleast 3 and atmost 4 members", {
-          type: "error",
-          position: "top-right",
-        });
-        setIsSubmitting(false);
-        return false;
-      }
+        if (memberDetails.length < 3 || memberDetails.length > 4) {
+          toast("Team should have atleast 3 and atmost 4 members", {
+            type: "error",
+            position: "top-right",
+          });
+          setIsSubmitting(false);
+          return false;
+        }
 
       for (let i = 0; i < memberDetails.length; i++) {
         const member = memberDetails[i];
@@ -250,6 +252,8 @@ function RegistrationForm() {
         const { data1, error1 } = await supabase
           .from("Member")
           .insert([member]);
+        console.log("Inserting Member");
+        console.log(data1, error1);
         let currMember = await supabase
           .from("Member")
           .select("id")
@@ -386,11 +390,15 @@ function RegistrationForm() {
                 required
                 name="domain"
                 onChange={updateTeamDetails}
-                value={teamDetails.domain}>
-                    <option value='Web 3.0'>Web 3.0</option>
-                    <option value='Ed tech'>Ed Tech</option>
-                    <option value='Auto tech'>Auto Tech</option>
-              </select>      
+                value={teamDetails.domain}
+              >
+                <option value="" selected>
+                  Select a Track
+                </option>
+                <option value="Web 3.0">Web 3.0</option>
+                <option value="Ed tech">Ed Tech</option>
+                <option value="Auto tech">Auto Tech</option>
+              </select>
             </label>
             <label htmlFor="solution_url">
               Share the link to your solution
