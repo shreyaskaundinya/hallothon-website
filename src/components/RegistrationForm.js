@@ -20,7 +20,54 @@ function RegistrationForm() {
 
   const [isRegOpen, setIsRegOpen] = useState(false);
 
-  const [membersDetails, setMemberDetails] = useState([]);
+  const [membersDetails, setMemberDetails] = useState([{
+    name: '',
+    email: '',
+    srn: '',
+    campus: 'EC',
+    sem: '1',
+    year: 0,
+    branch: 'CSE',
+    phone: '',
+    gender: 'M',
+    github: '',
+    guardian_name: '',
+    guardian_phone: '',
+    is_hostellite: false,
+    hostel_room_no: 0,
+},
+{
+    name: '',
+    email: '',
+    srn: '',
+    campus: 'EC',
+    sem: '1',
+    year: 0,
+    branch: 'CSE',
+    phone: '',
+    gender: 'M',
+    github: '',
+    guardian_name: '',
+    guardian_phone: '',
+    is_hostellite: false,
+    hostel_room_no: 0,
+},
+{
+    name: '',
+    email: '',
+    srn: '',
+    campus: 'EC',
+    sem: '1',
+    year: 0,
+    branch: 'CSE',
+    phone: '',
+    gender: 'M',
+    github: '',
+    guardian_name: '',
+    guardian_phone: '',
+    is_hostellite: false,
+    hostel_room_no: 0,
+},]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submitButton = useRef(null);
 
