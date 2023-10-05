@@ -338,7 +338,7 @@ function RegistrationForm() {
               </span>
               <span>
                 Please create a presentation that includes the problem statement
-                and your proposed solution, following the provided template.
+                and your proposed solution, following the provided <a href="https://docs.google.com/presentation/d/1t0OuPRjIvm5IAMO9KTyhfguvYFXbzQ4C-1Zn8Sz6zeY/edit#slide=id.gd933c8c4a_0_32" className="text-red-600">template</a>.
                 After creating the presentation, upload it to Google Drive and
                 share the link with us. Ensure that the document is set to
                 'public' access.
