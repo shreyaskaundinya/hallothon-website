@@ -13,6 +13,7 @@ function TeamsData() {
             *,
             Member!inner(*)
         `);
+        console.log(data);
         let teams_map = {};
 
         data.forEach((t) => {

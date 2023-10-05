@@ -294,9 +294,9 @@ function RegistrationForm() {
               <button className="btn" onClick={saveToLocalStorage}>
                 Save Changes
               </button>
-              <button className="btn" onClick={appendMember}>
+              {/* <button className="btn" onClick={appendMember}>
                 Add Member +
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="border-2 rounded-lg pb-4">
@@ -332,7 +332,7 @@ function RegistrationForm() {
                 onChange={updateTeamDetails}
                 value={teamDetails.team_name}
               />
-            </label>
+            {/* </label>
             <label htmlFor="problem">
               Problem
               <textarea
@@ -342,7 +342,7 @@ function RegistrationForm() {
                 onChange={updateTeamDetails}
                 value={teamDetails.problem}
               />
-            </label>
+            </label> */}
 
             <label htmlFor="solution">
               <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg">
@@ -366,14 +366,14 @@ function RegistrationForm() {
                 </span>
                 <br></br>
               </div>
-              <span className="mt-4">
+              {/* <span className="mt-4">
                 Explain your solution for your problem statement
-                {/* <span className='underline'>
+                <span className='underline'>
                                     one of the above
                                 </span>{' '}
                                 problem statement in detail. Please mention the
-                                problem statement number. */}
-              </span>
+                                problem statement number. 
+              </span> */}
               <textarea
                 required
                 type="text"
