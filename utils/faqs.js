@@ -21,6 +21,6 @@ export const faqs = [
     },
     {
         q: 'Have any other questions?',
-        ans: `Don't hesitate to email us at csehallothon.pesu@gmail.com. Do DM us on instagram @hallothon.pesu. We will try to reply to your queries as soon as possible.`,
+        ans: `Don't hesitate to email us at hallothon_cse@pesu.edu. Do DM us on instagram @hallothon.pesu. We will try to reply to your queries as soon as possible.`,
     },
 ];
