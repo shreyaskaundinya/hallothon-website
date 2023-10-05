@@ -15,18 +15,17 @@ function AboutUs() {
                     About Us
                 </h1>
                 <p className='text-step-1 sm:text-step-2 '>
-                🎃 Hallothon 2.0 is Back! 🎃<br></br>
+                <span className='text-center block'>🎃 Dare to Code the Unheard: <span className="text-red-600 font-semibold">Hallothon 2023</span> - A Hackathon Like No Other 🎃</span>
+                
+Prepare for an enchanting experience like no other as we unveil <span className="text-red-600 font-semibold">Hallothon 3.0</span>, conjured by the creative minds of the Department of Computer Science and Engineering. This spellbinding event masterfully blends the mystical essence of Halloween with the quest for innovative solutions to real-world challenges.
 
-Are you ready for the spooktacular return of Hallothon? It's that time of year again when we summon the brightest minds for a thrilling adventure into the world of technology and innovation. Organized by the Department of Computer Science & Engineering, Hallothon is the annual Halloween-themed hackathon that brings students together to conjure innovative solutions to real-world problems.
+After last year's astounding success, where over 1000 registrations and nearly 200 spirited participants lit up the night, we've brewed up something even more captivating for this year - <span className="text-red-600 font-semibold">Hallothon 3.0</span>. Brace yourselves for a grander, more enchanting, and spine-tingling adventure that will send shivers down even the most seasoned coder's spine.
 
-Last year, we were spellbound by the overwhelming response, with 900+ registrations and around 300 participants. This year, we're brewing up something even more enchanting - Hallothon 2.0! It's bigger, it's better, and it's sure to send shivers down your coding spines.
-
-Stay tuned for more updates, as we prepare to unleash the magic of Hallothon once again. Get your cauldrons ready, sharpen your broomsticks, and summon your fellow wizards and witches. Hallothon 2.0 is coming, and it's going to be a bewitching experience you won't want to miss! 
-
-Join us for the most mystical hackathon of the year  💻🎉🌕{' '}
-                    <span className='text-red-600'>Hallothon'23</span>,
+As the moon rises and anticipation bubbles in our cauldrons, we invite you to stay tuned for a bewitching series of updates. <span className="text-red-600 font-semibold">Hallothon 3.0</span> looms on the horizon, promising an unforgettable experience—a fusion of mystical talents, innovation, and the irresistible allure of Halloween. We've conjured up a trove of enticing cash prizes and enigmatic rewards that will leave you spellbound.
+Join us for the most magical hackathon of the year, <span className="text-red-600 font-semibold">Hallothon'23</span>, where innovation and the supernatural blend seamlessly, and technology dances with the eerie in a captivating symphony.<br></br>
+                    <span className='text-red-600 font-semibold'>Hallothon'23</span>,
                     sponsored by{' '}
-                    <span className='text-orange-600'>Cloudera</span>.
+                    <span className='text-orange-600 font-semibold'>Cloudera</span>.
                 </p>
             </div>
             <div className='stripes'>
