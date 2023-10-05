@@ -12,8 +12,6 @@ function RegistrationForm() {
   const router = useRouter();
   const [teamDetails, setTeamDetails] = useState({
     team_name: "",
-    problem: "",
-    solution: "",
     solution_url: "",
     domain: "",
   });
@@ -136,7 +134,6 @@ function RegistrationForm() {
       }
       if (
         teamDetails.team_name === "" ||
-        teamDetails.solution === "" ||
         teamDetails.domain === "" ||
         teamDetails.solution_url === ""
       ) {
@@ -332,28 +329,11 @@ function RegistrationForm() {
                 onChange={updateTeamDetails}
                 value={teamDetails.team_name}
               />
-            {/* </label>
-            <label htmlFor="problem">
-              Problem
-              <textarea
-                required
-                type="text"
-                name="problem"
-                onChange={updateTeamDetails}
-                value={teamDetails.problem}
-              />
-            </label> */}
+            </label>
 
-            <label htmlFor="solution">
               <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg">
-                {/* <span className='text-red-600'>
-                                    Problem Statements , Choose any one:
-                                </span> */}
 
                 <span>
-                  {/* <span className='text-red-600 font-bold'>
-                                        5.
-                                    </span>{' '} */}
                   Come up with a problem statement and explain your solution in
                   detail for the same
                 </span>
@@ -366,22 +346,6 @@ function RegistrationForm() {
                 </span>
                 <br></br>
               </div>
-              {/* <span className="mt-4">
-                Explain your solution for your problem statement
-                <span className='underline'>
-                                    one of the above
-                                </span>{' '}
-                                problem statement in detail. Please mention the
-                                problem statement number. 
-              </span> */}
-              <textarea
-                required
-                type="text"
-                name="solution"
-                onChange={updateTeamDetails}
-                value={teamDetails.solution}
-              />
-            </label>
 
             <label htmlFor="domain" className="flex-1">
               Select your Track
