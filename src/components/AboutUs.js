@@ -24,8 +24,8 @@ After last year's astounding success, where over 1000 registrations and nearly 2
 As the moon rises and anticipation bubbles in our cauldrons, we invite you to stay tuned for a bewitching series of updates. <span className="text-red-600 font-semibold">Hallothon 3.0</span> looms on the horizon, promising an unforgettable experience—a fusion of mystical talents, innovation, and the irresistible allure of Halloween. We've conjured up a trove of enticing cash prizes and enigmatic rewards that will leave you spellbound.
 Join us for the most magical hackathon of the year, <span className="text-red-600 font-semibold">Hallothon'23</span>, where innovation and the supernatural blend seamlessly, and technology dances with the eerie in a captivating symphony.<br></br>
                     <span className='text-red-600 font-semibold'>Hallothon'23</span>,
-                    sponsored by{' '}
-                    <span className='text-orange-600 font-semibold'>Cloudera</span>.
+                    {/* sponsored by{' '}
+                    <span className='text-orange-600 font-semibold'>Cloudera</span>. */}
                 </p>
             </div>
             <div className='stripes'>
