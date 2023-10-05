@@ -18,54 +18,7 @@ function RegistrationForm() {
 
   const [isRegOpen, setIsRegOpen] = useState(false);
 
-  const [membersDetails, setMemberDetails] = useState([{
-    name: '',
-    email: '',
-    srn: '',
-    campus: 'EC',
-    sem: '1',
-    year: 0,
-    branch: 'CSE',
-    phone: '',
-    gender: 'M',
-    github: '',
-    guardian_name: '',
-    guardian_phone: '',
-    is_hostellite: false,
-    hostel_room_no: 0,
-},
-{
-    name: '',
-    email: '',
-    srn: '',
-    campus: 'EC',
-    sem: '1',
-    year: 0,
-    branch: 'CSE',
-    phone: '',
-    gender: 'M',
-    github: '',
-    guardian_name: '',
-    guardian_phone: '',
-    is_hostellite: false,
-    hostel_room_no: 0,
-},
-{
-    name: '',
-    email: '',
-    srn: '',
-    campus: 'EC',
-    sem: '1',
-    year: 0,
-    branch: 'CSE',
-    phone: '',
-    gender: 'M',
-    github: '',
-    guardian_name: '',
-    guardian_phone: '',
-    is_hostellite: false,
-    hostel_room_no: 0,
-},]);
+  const [membersDetails, setMemberDetails] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submitButton = useRef(null);
 
@@ -202,14 +155,14 @@ function RegistrationForm() {
         return false;
       }
 
-        if (memberDetails.length < 3 || memberDetails.length > 4) {
-          toast("Team should have atleast 3 and atmost 4 members", {
-            type: "error",
-            position: "top-right",
-          });
-          setIsSubmitting(false);
-          return false;
-        }
+      if (memberDetails.length < 3 || memberDetails.length > 4) {
+        toast("Team should have atleast 3 and atmost 4 members", {
+          type: "error",
+          position: "top-right",
+        });
+        setIsSubmitting(false);
+        return false;
+      }
 
       for (let i = 0; i < memberDetails.length; i++) {
         const member = memberDetails[i];
@@ -296,7 +249,7 @@ function RegistrationForm() {
         const { data1, error1 } = await supabase
           .from("Member")
           .insert([member]);
-        
+
         let currMember = await supabase
           .from("Member")
           .select("id")
@@ -378,21 +331,20 @@ function RegistrationForm() {
               />
             </label>
 
-              <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg">
-
-                <span>
-                  Come up with a problem statement and explain your solution in
-                  detail for the same
-                </span>
-                <span>
-                  Please create a presentation that includes the problem
-                  statement and your proposed solution, following the provided
-                  template. After creating the presentation, upload it to Google
-                  Drive and share the link with us. Ensure that the document is
-                  set to 'public' access.
-                </span>
-                <br></br>
-              </div>
+            <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg">
+              <span>
+                Come up with a problem statement and explain your solution in
+                detail for the same
+              </span>
+              <span>
+                Please create a presentation that includes the problem statement
+                and your proposed solution, following the provided template.
+                After creating the presentation, upload it to Google Drive and
+                share the link with us. Ensure that the document is set to
+                'public' access.
+              </span>
+              <br></br>
+            </div>
 
             <label htmlFor="domain" className="flex-1">
               Select your Track
@@ -402,7 +354,7 @@ function RegistrationForm() {
                 onChange={updateTeamDetails}
                 value={teamDetails.domain}
               >
-                <option value="" >
+                <option value="" selected>
                   Select a Track
                 </option>
                 <option value="Web 3.0">Web 3.0</option>
