@@ -402,7 +402,7 @@ function RegistrationForm() {
                 onChange={updateTeamDetails}
                 value={teamDetails.domain}
               >
-                <option value="" selected>
+                <option value="" >
                   Select a Track
                 </option>
                 <option value="Web 3.0">Web 3.0</option>
