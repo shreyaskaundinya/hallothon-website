@@ -331,21 +331,6 @@ function RegistrationForm() {
               />
             </label>
 
-            <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg">
-              <span>
-                Come up with a problem statement and explain your solution in
-                detail for the same
-              </span>
-              <span>
-                Please create a presentation that includes the problem statement
-                and your proposed solution, following the provided <a href="https://docs.google.com/presentation/d/1t0OuPRjIvm5IAMO9KTyhfguvYFXbzQ4C-1Zn8Sz6zeY/edit#slide=id.gd933c8c4a_0_32" className="text-red-600">template</a>.
-                After creating the presentation, upload it to Google Drive and
-                share the link with us. Ensure that the document is set to
-                'public' access.
-              </span>
-              <br></br>
-            </div>
-
             <label htmlFor="domain" className="flex-1">
               Select your Track
               <select
@@ -362,6 +347,28 @@ function RegistrationForm() {
                 <option value="Auto tech">Auto Tech</option>
               </select>
             </label>
+
+            <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg">
+              <span>
+                Come up with a problem statement and explain your solution in
+                detail for the same
+              </span>
+              <span>
+                Please create a presentation that includes the problem statement
+                and your proposed solution, following the provided{" "}
+                <a
+                  href="https://docs.google.com/presentation/d/1t0OuPRjIvm5IAMO9KTyhfguvYFXbzQ4C-1Zn8Sz6zeY/edit#slide=id.gd933c8c4a_0_32"
+                  className="text-red-600 font-semibold"
+                >
+                  template
+                </a>
+                . After creating the presentation, upload it to Google Drive and
+                share the link with us. Ensure that the document is set to
+                'public' access.
+              </span>
+              <br></br>
+            </div>
+
             <label htmlFor="solution_url">
               Share the link to your solution
               <input
