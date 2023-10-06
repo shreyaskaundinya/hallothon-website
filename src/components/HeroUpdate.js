@@ -105,7 +105,7 @@ function HeroUpdate() {
                     </div>
                 </div>
                 <div>
-                    <Timer date={'2023/10/10 24:00:00'} />
+                    <Timer date={'2023/10/10 23:59:59'} />
                 </div>
             </div>
 
@@ -144,7 +144,7 @@ function HeroUpdate() {
                         <Skull />
                     </animated.div>
                     <div className='mob__timer'>
-                        <Timer date={'2023/10/20 16:00:00'} />
+                        <Timer date={'2023/10/10 23:59:59'} />
                     </div>
                     <div className='mob__leftbox'></div>
                 </div>
