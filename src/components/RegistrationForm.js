@@ -26,11 +26,11 @@ function RegistrationForm() {
     console.log("SAVING TO LS", teamDetails);
     localStorage.setItem(
       "hallothon-saved-team-data",
-      JSON.stringify(teamDetails),
+      JSON.stringify(teamDetails)
     );
     localStorage.setItem(
       "hallothon-saved-member-data",
-      JSON.stringify(membersDetails),
+      JSON.stringify(membersDetails)
     );
   };
 
@@ -62,7 +62,7 @@ function RegistrationForm() {
         return { ...prevDeets, [e.target.name]: e.target.value };
       });
     },
-    [teamDetails],
+    [teamDetails]
   );
 
   const appendMember = useCallback(
@@ -93,7 +93,7 @@ function RegistrationForm() {
         ];
       });
     },
-    [membersDetails],
+    [membersDetails]
   );
 
   const updateMember = useCallback(
@@ -105,7 +105,7 @@ function RegistrationForm() {
       });
       // console.log(membersDetails[index]);
     },
-    [membersDetails],
+    [membersDetails]
   );
 
   const removeMember = useCallback(
@@ -116,7 +116,7 @@ function RegistrationForm() {
         return x;
       });
     },
-    [membersDetails],
+    [membersDetails]
   );
   const validateData = useCallback(async (teamDetails, memberDetails) => {
     // console.log("in validate")
@@ -149,7 +149,7 @@ function RegistrationForm() {
       if (!teamDetails.solution_url.match()) {
         toast(
           `Please share a google drive link to your solution presentation (make sure its public)`,
-          { type: "error", position: "top-right" },
+          { type: "error", position: "top-right" }
         );
         setIsSubmitting(false);
         return false;
@@ -178,14 +178,14 @@ function RegistrationForm() {
             `Please fill all the fields in the member details section for member ${
               i + 1
             }`,
-            { type: "error", position: "top-right" },
+            { type: "error", position: "top-right" }
           );
           setIsSubmitting(false);
           return false;
         }
         if (
           !member.email.match(
-            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
           )
         ) {
           toast("Please enter a valid email address", {
@@ -230,6 +230,7 @@ function RegistrationForm() {
 
   const registerTeam = useCallback(async (teamDetails, memberDetails) => {
     const { data, error } = await supabase.from("Team").insert([teamDetails]);
+
     if (error) {
       toast("Server Error! Please try again later", {
         type: "error",
@@ -242,39 +243,79 @@ function RegistrationForm() {
         .select("id")
         .eq("team_name", teamDetails.team_name);
       let teamId = team.data[0].id;
-      memberDetails.map(async (member) => {
-        console.log(member);
-        member.team_id = teamId;
-        member.team_name = teamDetails.team_name;
-        const { data1, error1 } = await supabase
-          .from("Member")
-          .insert([member]);
 
-        let currMember = await supabase
-          .from("Member")
-          .select("id")
-          .eq("college_id", member.college_id);
-        let memberId = currMember.data[0].id;
-        const { data2, error2 } = await supabase
-          .from("MemberStatus")
-          .insert([{ member_id: memberId }]);
-        setIsSubmitting(false);
-        if (error1 || error2) {
-          toast("Error in registering team", {
-            type: "error",
-            position: "top-right",
-          });
-          setIsSubmitting(false);
-        } else {
+      let promises = [];
+
+      memberDetails.forEach((member) => {
+        promises.push(
+          (async (member) => {
+            {
+              //console.log(member);
+              member.team_id = teamId;
+              member.team_name = teamDetails.team_name;
+              try {
+                const { data1, error1 } = await supabase
+                  .from("Member")
+                  .insert([member]);
+
+                //console.log(member.name, data1, error1);
+
+                if (error1) {
+                  toast("Error in registering team", {
+                    type: "error",
+                    position: "top-right",
+                  });
+                  //console.log(error1);
+                  throw new Error(error1);
+                }
+
+                let currMember = await supabase
+                  .from("Member")
+                  .select("id")
+                  .eq("college_id", member.college_id);
+
+                let memberId = currMember.data[0].id;
+
+                const { data2, error2 } = await supabase
+                  .from("MemberStatus")
+                  .insert([{ member_id: memberId }]);
+
+                //console.log(member.name, data2, error2);
+
+                if (error2) {
+                  toast("Error in registering team", {
+                    type: "error",
+                  });
+                  //console.log(error2);
+                  throw new Error(error2);
+                }
+                //console.log(member.name, 'SUCCESS');
+              } catch (err) {
+                throw err;
+              }
+            }
+          })(member)
+        );
+      });
+
+      Promise.all(promises)
+        .then((values) => {
+          //console.log(values);
           toast("Team Registered Successfully", {
             type: "success",
-            position: "bottom-right",
-            toastId: "success",
           });
           setIsSubmitting(false);
+          localStorage.setItem("hallothon-has-submitted", "true");
           router.push("/success");
-        }
-      });
+        })
+        .catch((err) => {
+          toast(
+            "Error registering team! Please try again. [make sure to have filled all fields with valid entries]. Contact us if the registration keeps failing...",
+            {
+              type: "error",
+            }
+          );
+        });
     }
   });
   return (
@@ -348,7 +389,7 @@ function RegistrationForm() {
               </select>
             </label>
 
-            <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg">
+            <div className="flex flex-col gap-4 p-4 sm:p-8 border border-white rounded-lg text-step--1">
               <span>
                 Come up with a problem statement and explain your solution in
                 detail for the same
