@@ -171,6 +171,7 @@ function RegistrationForm() {
           member.email === "" ||
           member.college_id === "" ||
           member.phone === "" ||
+          member.college === "" ||
           member.guardian_name === "" ||
           member.guardian_phone === ""
         ) {
