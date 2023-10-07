@@ -228,55 +228,147 @@ function RegistrationForm() {
     }
   });
 
-  const registerTeam = useCallback(async (teamDetails, memberDetails) => {
-    const { data, error } = await supabase.from("Team").insert([teamDetails]);
-    if (error) {
-      toast("Server Error! Please try again later", {
-        type: "error",
-        position: "top-right",
-      });
-      setIsSubmitting(false);
-    } else {
-      let team = await supabase
-        .from("Team")
-        .select("id")
-        .eq("team_name", teamDetails.team_name);
-      let teamId = team.data[0].id;
-      memberDetails.map(async (member) => {
-        console.log(member);
-        member.team_id = teamId;
-        member.team_name = teamDetails.team_name;
-        const { data1, error1 } = await supabase
-          .from("Member")
-          .insert([member]);
+  // const registerTeam = useCallback(async (teamDetails, memberDetails) => {
+  //   const { data, error } = await supabase.from("Team").insert([teamDetails]);
+  //   if (error) {
+  //     toast("Server Error! Please try again later", {
+  //       type: "error",
+  //       position: "top-right",
+  //     });
+  //     setIsSubmitting(false);
+  //   } else {
+  //     let team = await supabase
+  //       .from("Team")
+  //       .select("id")
+  //       .eq("team_name", teamDetails.team_name);
+  //     let teamId = team.data[0].id;
+  //     memberDetails.map(async (member) => {
+  //       console.log(member);
+  //       member.team_id = teamId;
+  //       member.team_name = teamDetails.team_name;
+  //       const { data1, error1 } = await supabase
+  //         .from("Member")
+  //         .insert([member]);
 
-        let currMember = await supabase
-          .from("Member")
-          .select("id")
-          .eq("college_id", member.college_id);
-        let memberId = currMember.data[0].id;
-        const { data2, error2 } = await supabase
-          .from("MemberStatus")
-          .insert([{ member_id: memberId }]);
+  //       let currMember = await supabase
+  //         .from("Member")
+  //         .select("id")
+  //         .eq("college_id", member.college_id);
+  //       let memberId = currMember.data[0].id;
+  //       const { data2, error2 } = await supabase
+  //         .from("MemberStatus")
+  //         .insert([{ member_id: memberId }]);
+  //       setIsSubmitting(false);
+  //       if (error1 || error2) {
+  //         toast("Error in registering team", {
+  //           type: "error",
+  //           position: "top-right",
+  //         });
+  //         setIsSubmitting(false);
+  //       } else {
+  //         toast("Team Registered Successfully", {
+  //           type: "success",
+  //           position: "bottom-right",
+  //           toastId: "success",
+  //         });
+  //         setIsSubmitting(false);
+  //         router.push("/success");
+  //       }
+  //     });
+  //   }
+  // });
+  const registerTeam = useCallback(async (teamDetails, memberDetails) => {
+    const { data, error } = await supabase
+        .from('Team')
+        .insert([teamDetails]);
+
+    if (error) {
+        toast('Server Error! Please try again later', {
+            type: 'error',
+            position: 'top-right',
+        });
         setIsSubmitting(false);
-        if (error1 || error2) {
-          toast("Error in registering team", {
-            type: "error",
-            position: "top-right",
-          });
-          setIsSubmitting(false);
-        } else {
-          toast("Team Registered Successfully", {
-            type: "success",
-            position: "bottom-right",
-            toastId: "success",
-          });
-          setIsSubmitting(false);
-          router.push("/success");
-        }
-      });
+    } else {
+        let team = await supabase
+            .from('Team')
+            .select('id')
+            .eq('team_name', teamDetails.team_name);
+        let teamId = team.data[0].id;
+
+        let promises = [];
+
+        memberDetails.forEach((member) => {
+            promises.push(
+                (async (member) => {
+                    {
+                        //console.log(member);
+                        member.team_id = teamId;
+                        member.team_name = teamDetails.team_name;
+                        try {
+                            const { data1, error1 } = await supabase
+                                .from('Member')
+                                .insert([member]);
+
+                            //console.log(member.name, data1, error1);
+
+                            if (error1) {
+                                toast('Error in registering team', {
+                                    type: 'error',
+                                    position: 'top-right',
+                                });
+                                //console.log(error1);
+                                throw new Error(error1);
+                            }
+
+                            let currMember = await supabase
+                                .from('Member')
+                                .select('id')
+                                .eq('college_id', member.college_id);
+
+                            let memberId = currMember.data[0].id;
+
+                            const { data2, error2 } = await supabase
+                                .from('MemberStatus')
+                                .insert([{ member_id: memberId }]);
+
+                            //console.log(member.name, data2, error2);
+
+                            if (error2) {
+                                toast('Error in registering team', {
+                                    type: 'error',
+                                });
+                                //console.log(error2);
+                                throw new Error(error2);
+                            }
+                            //console.log(member.name, 'SUCCESS');
+                        } catch (err) {
+                            throw err;
+                        }
+                    }
+                })(member)
+            );
+        });
+
+        Promise.all(promises)
+            .then((values) => {
+                //console.log(values);
+                toast('Team Registered Successfully', {
+                    type: 'success',
+                });
+                setIsSubmitting(false);
+                localStorage.setItem('hallothon-has-submitted', 'true');
+                router.push('/success');
+            })
+            .catch((err) => {
+                toast(
+                    'Error registering team! Please try again. [make sure to have filled all fields with valid entries]. Contact us if the registration keeps failing...',
+                    {
+                        type: 'error',
+                    }
+                );
+            });
     }
-  });
+});
   return (
     <>
       <div className="text-center text-step-2 mx-5 my-2 font-bold">
