@@ -169,6 +169,7 @@ function RegistrationForm() {
         if (
           member.name === "" ||
           member.email === "" ||
+          member.college === "" ||
           member.college_id === "" ||
           member.phone === "" ||
           member.college === "" ||
