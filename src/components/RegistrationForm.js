@@ -228,6 +228,55 @@ function RegistrationForm() {
     }
   });
 
+  // const registerTeam = useCallback(async (teamDetails, memberDetails) => {
+  //   const { data, error } = await supabase.from("Team").insert([teamDetails]);
+  //   if (error) {
+  //     toast("Server Error! Please try again later", {
+  //       type: "error",
+  //       position: "top-right",
+  //     });
+  //     setIsSubmitting(false);
+  //   } else {
+  //     let team = await supabase
+  //       .from("Team")
+  //       .select("id")
+  //       .eq("team_name", teamDetails.team_name);
+  //     let teamId = team.data[0].id;
+  //     memberDetails.map(async (member) => {
+  //       console.log(member);
+  //       member.team_id = teamId;
+  //       member.team_name = teamDetails.team_name;
+  //       const { data1, error1 } = await supabase
+  //         .from("Member")
+  //         .insert([member]);
+
+  //       let currMember = await supabase
+  //         .from("Member")
+  //         .select("id")
+  //         .eq("college_id", member.college_id);
+  //       let memberId = currMember.data[0].id;
+  //       const { data2, error2 } = await supabase
+  //         .from("MemberStatus")
+  //         .insert([{ member_id: memberId }]);
+  //       setIsSubmitting(false);
+  //       if (error1 || error2) {
+  //         toast("Error in registering team", {
+  //           type: "error",
+  //           position: "top-right",
+  //         });
+  //         setIsSubmitting(false);
+  //       } else {
+  //         toast("Team Registered Successfully", {
+  //           type: "success",
+  //           position: "bottom-right",
+  //           toastId: "success",
+  //         });
+  //         setIsSubmitting(false);
+  //         router.push("/success");
+  //       }
+  //     });
+  //   }
+  // });
   const registerTeam = useCallback(async (teamDetails, memberDetails) => {
     const { data, error } = await supabase.from("Team").insert([teamDetails]);
 
