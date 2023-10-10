@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <div className=''>
             <Head>
-                <title>Hallothon 2022</title>
+                <title>Hallothon 2023</title>
                 <meta name='description' content='👻 👻 👻 👻 👻' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
@@ -20,7 +20,7 @@ export default function Home() {
             <Prizepool />
             {/* <Sponsor /> */}
             <AboutUs />
-            <TimelineSection />
+            {/* <TimelineSection /> */}
             <Faq />
             <Footer className='absolute b-0' />
         </div>

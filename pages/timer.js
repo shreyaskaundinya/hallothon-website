@@ -6,7 +6,7 @@ function Timer() {
     const [timeup, setTimeup] = useState(false);
 
     const calculateTimeLeft = () => {
-        const difference = new Date('2022/11/12 15:00:00') - new Date();
+        const difference = new Date('2023/10/15 15:00:00') - new Date();
         let timeLeft = [];
 
         if (difference > 0) {

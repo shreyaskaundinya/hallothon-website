@@ -28,9 +28,9 @@ function Footer() {
             </div>
             <div className='flex flex-col  gap-2'>
                 <h1 className='text-step-5 m-0'>CONTACT US</h1>
-                <h5 className='text-step-1'>Siddharth Kumar : +91 9606183715</h5>
-                <h5 className='text-step-1'>Shashank Varma : +91 9538655010</h5>
-                <h5 className='text-step-1'>Shreyas S : +91 9481749017</h5>
+                <h5 className='text-step-1'>Charitha : +91 93534 62756</h5>
+                <h5 className='text-step-1'>Abhignya  : +91 80973 07565</h5>
+                <h5 className='text-step-1'>Ankush : +91 86182 10549</h5>
             </div>
         </div>
     );

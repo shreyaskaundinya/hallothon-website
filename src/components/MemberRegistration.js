@@ -2,8 +2,8 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
     /*
     name: '',
     email: '',
-    srn: '',
-    campus: '',
+    college: '',
+    srn/ college id: '',
     sem: '',
     year: '',
     branch: '',
@@ -58,14 +58,14 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                         value={member.email}
                     />
                 </label>
-                <label htmlFor='srn'>
-                    SRN
+                <label htmlFor='college_id'>
+                    College ID (SRN)
                     <input
                         required
                         type='text'
-                        name='srn'
+                        name='college_id'
                         onChange={handleUpdate}
-                        value={member.srn}
+                        value={member.college_id}
                     />
                 </label>
                 <div className='flex gap-2'>
@@ -94,18 +94,17 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                     )}
                 </div>
                 <div className='sm:flex gap-2'>
-                    <label htmlFor='campus' className='flex-1'>
-                        Campus
-                        <select
+                    <label htmlFor='college' className='flex-1'>
+                        College
+                        <input
                             required
+                            type="text"
                             className=''
-                            name='campus'
+                            name='college'
                             onChange={handleUpdate}
                             // onClick={handleUpdate}
-                            value={member.campus}>
-                            <option value='EC'>EC Campus</option>
-                            <option value='RR'>RR Campus</option>
-                        </select>
+                            value={member.college}>
+                        </input>
                     </label>
                     <label htmlFor='sem' className='flex-1'>
                         SEM
@@ -117,8 +116,11 @@ function MemberRegistration({ member, updateMember, removeMember, index }) {
                             // onClick={handleUpdate}
                             value={member.sem}>
                             <option value='1'>1st Sem</option>
-                            <option value='3'>3st Sem</option>
+                            <option value='2'>2nd Sem</option>
+                            <option value='3'>3rd Sem</option>
+                            <option value='4'>4th Sem</option>
                             <option value='5'>5th Sem</option>
+                            <option value='6'>6th Sem</option>
                             <option value='7'>7th Sem</option>
                         </select>
                     </label>

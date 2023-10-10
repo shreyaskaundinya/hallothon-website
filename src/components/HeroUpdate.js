@@ -33,7 +33,7 @@ function HeroUpdate() {
                         <animated.div
                             className='year-bar'
                             style={hallothonInOutStyle}>
-                            <span>2022</span>
+                            <span>2023</span>
                         </animated.div>
 
                         <div className='mid-bar'>
@@ -105,7 +105,7 @@ function HeroUpdate() {
                     </div>
                 </div>
                 <div>
-                    <Timer date={'2022/11/11 16:00:00'} />
+                    <Timer date={'2023/10/10 23:59:59'} />
                 </div>
             </div>
 
@@ -114,7 +114,7 @@ function HeroUpdate() {
                     <animated.div class='mob__header' style={hallothonUpStyle}>
                         <p>
                             <span className='font-poppins'>HALLOTHON</span>
-                            <span class='mob__year'>2022</span>
+                            <span class='mob__year'>2023</span>
                         </p>
                     </animated.div>
 
@@ -144,7 +144,7 @@ function HeroUpdate() {
                         <Skull />
                     </animated.div>
                     <div className='mob__timer'>
-                        <Timer date={'2022/11/11 16:00:00'} />
+                        <Timer date={'2023/10/10 23:59:59'} />
                     </div>
                     <div className='mob__leftbox'></div>
                 </div>
