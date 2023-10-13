@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 
-function TimerAlt(props) {
+export default function TimerAlt(props) {
     const [timeup, setTimeup] = useState(false);
 
     const calculateTimeLeft = () => {
-        const difference = new Date(props.startDate) - new Date(props.endDate);
+        const difference = new Date(props.date) - new Date();
         let timeLeft = [];
 
         if (difference > 0) {
             timeLeft = [
-                Math.floor(difference / (1000 * 60 * 60 * 24)),
                 Math.floor((difference / (1000 * 60 * 60)) % 24),
                 Math.floor((difference / 1000 / 60) % 60),
                 Math.floor((difference / 1000) % 60),
@@ -43,7 +42,7 @@ function TimerAlt(props) {
                 <p>Time is up!</p>
             ) : (
                 <>
-                    <div>
+                    {/* <div>
                         <span className='text-step-0 md:text-step-4 pr-2'>
                             {timeLeft[0] < 10 ? '0' + timeLeft[0] : timeLeft[0]}
                         </span>
@@ -53,10 +52,10 @@ function TimerAlt(props) {
                             </span>
                             <span className='visible lg:hidden'>D</span>
                         </span>
-                    </div>
+                    </div> */}
                     <div>
                         <span className='text-step-0 md:text-step-4 pr-2'>
-                            {timeLeft[1] < 10 ? '0' + timeLeft[1] : timeLeft[1]}
+                            {timeLeft[0] < 10 ? '0' + timeLeft[0] : timeLeft[0]}
                         </span>
                         <span className='text-step-2'>
                             <span className='hidden lg:visible lg:inline'>
@@ -67,7 +66,7 @@ function TimerAlt(props) {
                     </div>
                     <div>
                         <span className='text-step-0 md:text-step-4 pr-2'>
-                            {timeLeft[2] < 10 ? '0' + timeLeft[2] : timeLeft[2]}
+                            {timeLeft[1] < 10 ? '0' + timeLeft[1] : timeLeft[1]}
                         </span>
                         <span className='text-step-2'>
                             <span className='hidden lg:visible lg:inline'>
@@ -78,7 +77,7 @@ function TimerAlt(props) {
                     </div>
                     <div>
                         <span className='text-step-0 md:text-step-4 pr-2'>
-                            {timeLeft[3] < 10 ? '0' + timeLeft[3] : timeLeft[3]}
+                            {timeLeft[2] < 10 ? '0' + timeLeft[2] : timeLeft[2]}
                         </span>
                         <span className='text-step-2'>
                             <span className='hidden lg:visible lg:inline'>
@@ -93,4 +92,3 @@ function TimerAlt(props) {
     );
 }
 
-export default TimerAlt;

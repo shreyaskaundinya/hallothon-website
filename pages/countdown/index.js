@@ -1,5 +1,8 @@
 import { useState } from "react";
-import Timer from "../../src/components/Timer"
+import TimerAlt from "../../src/components/TimerAlt"
+import Image from "next/image";
+
+import HallothonLogo from "./../../public/assets/hallothonLogo.svg"
 
 const Countdown = () => {
 
@@ -15,9 +18,10 @@ const Countdown = () => {
     
         return (
             <>
-                <div>
+                <div className = "flex flex-col justify-center items-center">
+                    <Image src={HallothonLogo} width={100} height={100} className="mx-auto opacity-90"/>
                     <h1 className = "text-center my-10 text-5xl">All The Best!</h1>
-                    <Timer setdone = {false} date = {'2023/10/15 10:00:00'} />
+                    <TimerAlt setdone = {false} date = {'2023/10/15 10:00:00'} />
                 </div>
 
             </>
